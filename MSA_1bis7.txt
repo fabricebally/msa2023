@@ -1,0 +1,1275 @@
+             Microsoft System Administration
+             Einleitung
+                                                          Kevin Wyer                                              1
+                                           Zu meiner Person
+       Name, Vorname:             Wyer Kevin
+       Kontaktdaten:              +41 79 824 60 28
+                                  kevin.wyer@gibb.ch
+       Beruflich:                 Productmanager Cloud at Swiss Post
+                                  Teamleiter Microsoft Platforms Operation bei Post CH AG
+                                  Leiter IT-Infrastruktur / Fachreferent  bei ICT Berufsbildungscenter AG
+                                  Experte bei ICT Berufsbildung Schweiz
+                                  System Engineer bei MTF ThörishausAG
+       Ausbildung:                Master of Advanced Studies in Information Technology 
+                                  Dipl. Techniker HF Informatik
+                                                         Kevin Wyer                                            2
+                                            Lernziele
+       ▪ Nach dem Kurs Microsoft System Administration sind sie befähigt
+            − Installation einer Windows Server Umgebung mit folgenden Komponenten:
+                − ActiveDirectory Domain System
+                − Domain Name System
+                − Dynamic Host Configuration Protocol
+                − Anbindung eines Azure Acitve Directory
+                     − Diverse Konfigurationen
+                − Group policyobjects
+                − File Server mit Berechtigungskonzept
+                                                          Kevin Wyer                                              3
+                                        Vorstellungsrunde
+       ▪ Name, Vorname
+       ▪ Firma
+       ▪ Tätigkeitsbereich
+       ▪ Welches Know-how habt ihr bereits im Windows Server Umfeld?
+       ▪ Erwartungen an den Kurs Microsoft System Administration
+                                                     Kevin Wyer                                         4
+                                    Kompetenznachweis
+      ▪ Notengebung für Systemmanagement Windows
+           Erfahrungsnote                                                            ??%
+           Theoretische Prüfung                                                      ??%
+           Pratkische Prüfung                                                        ?? %
+                                                Kevin Wyer                                   5
+                                    Rahmenbedingungen
+      ▪ Prüfungsvorbereitung ist Sache des Teilnehmers
+      ▪ Umsetzen des praktischen Teils kann im Unterricht erfolgen
+      ▪ Abwesenheiten
+          − Bitte per Mail mitteilen
+          − Selber organisieren was verpasst wurde (Holschuld)
+                                                Kevin Wyer                                    6
+                                         Literatur
+       ▪ https://learn.microsoft.com/
+       ▪ Windows Server 2019 Autor
+           − Jörg Schieb
+       ▪ Microsoft Windows Server 2012 R2 -Das Handbuch 
+           − Autor: Thomas Joos
+                                                       Kevin Wyer                                          7
+                                     Arbeitsumgebung
+      ▪ Smartlearn Environment als Basis
+          − Beta Klasse ;)!
+                                                 Kevin Wyer                                    9
+                                        Software & Lizenzen
+       ▪ Software und Lizenz für Windows Server und Client
+           − www.smartlearn.ch→einloggen mit Gibb Account
+           − Software →Microsoft AzureDEV Tools forteaching
+           − Registrieren mit @iet-gibb.chAdresse
+           − Einloggen auf https://portal.azure.com/
+           − Access student benefits
+           − Windows 11 & Windows Server 2022
+             ISO herunterladen & Key speichern
+                                                     Kevin Wyer                                         11
+             Microsoft System Administration
+             Windows Server 2022
+                                                          Kevin Wyer                                              1
+                                        Lernziele
+       ▪ Ihr kennt verschiedene Windows Server 2022 Rollen und Features
+       ▪ Ihr kennt die neuen Rollen und Features von Windows Server 2022
+       ▪ Ihr kennt die verschiedenen Windows Server 2022 Versionen
+       ▪ Ihr kennt das Lizenzierungsmodell von Windows Server 2022
+       ▪ Ihr könnt einen Windows Server GUI/CORE installieren und 
+          grundkonfigurieren
+                                                     Kevin Wyer                                         2
+                                        Praktische Bewertung
+       ▪ Server Konfigurieren (vmWS1, VMCS1)
+       ▪ Basiskonfiguration der Server (vmWS1, VMCS1)
+       ▪ Remote Management konfiguriert (WinRM)
+                                                    Kevin Wyer                                         3
+                                   Study
+      ▪ Windows Server documentation | Microsoft Learn
+      ▪ Get started with Windows Server | Microsoft Learn
+                                              Kevin Wyer                                  4
+                                         Server Rollen
+       ▪ ActiveDirectory CertificateServices               ▪ Hyper-V
+       ▪ ActiveDirectory Domain Services                   ▪ Network Controller
+       ▪ ActiveDirectory FederationServices                ▪ Network PolicyandAccess Services
+       ▪ ActiveDirectory Lightweight Directory             ▪ Remote Access
+          Services                                         ▪ Remote Desktop Services
+       ▪ ActiveDirectory RightsManagement                  ▪ Volume ActivationServices
+          Services                                         ▪ Web Server (IIS)
+       ▪ Device HealthAttestation                          ▪ Windows DeploymentServices
+       ▪ DHCP Server                                       ▪ Windows Server Update Services
+       ▪ DNS Server
+       ▪ Fax Server
+       ▪ Host Guardian Service
+                                                      Kevin Wyer                                          5
+                                           Server Rollen File andStorage Services
+       ▪ File andiSCSIServices                                     − Server forNFS
+            − File Server                                          − Work Folders
+            − BrancheCacheforNetwork Files                    ▪ Storage Services (immer 
+            − Data Deduplication                                  vorinstalliert)
+            − DFS Namespace
+            − DFS Replication
+            − File Server ResourceManager
+            − File Server VSS Agent Service
+            − iSCSITarget Server
+            − iSCSITarget Storage Provider
+                                                          Kevin Wyer                                             6
+                                         Server Features
+       ▪ Features sind kleine «Addons»                     ▪ Beispiele
+       ▪ Oftmals durch Rollen mitinstalliert                   − BitLocker
+       ▪ Verwaltungstools                                      − Failover Clustering
+           − Remote Server Administration Tools                − Group PolicyManagement
+           − Gibt es auch für Clients                          − MulitpathI/O
+                                                               − SMTP Server
+                                                               − Telnet Client
+                                                               − Windows Server Backup
+                                                      Kevin Wyer                                          7
+                                          Neue Features in Server 2019
+       ▪ Windows Admin Center
+       ▪ HCI -hyper-convergedInfrastructure
+       ▪ Windows Defender ATP –AdvancedThreatProtection
+       ▪ Windows Core Server wurde weiter verschlankt
+       ▪ Windows-Subsystem für Linux
+                                                        Kevin Wyer                                            8
+                                          Neue Features in Server 2022
+       ▪ Sicherheit
+       ▪ Azure-Hybridfunktionen
+           − Azure Arc
+           − Windows Admin Center
+           − Hotpatching (kein Neustart nötig)
+       ▪ Weiteres
+           − Edge Browser
+           − Netzwerk & Storage optimierungen
+       ▪ Neuesin Windows Server2022 | Microsoft Docs
+                                                       Kevin Wyer                                           9
+                                         Editionen von Windows Server 2022
+       ▪ Windows Server 2022 Standard
+       ▪ Windows Server 2022 Datacenter
+       ▪ Windows Server 2022 Datacenter
+           − Azure Edition
+       ▪ Windows Server 2022 Essentials
+       ▪  Windows Server2022-Lizenzierung und -Preise | Microsoft
+       ▪  Vergleichder Windows Server2022-Editionen Standard, Datacenter und Datacenter Azure Edition | Microsoft Docs
+                                                      Kevin Wyer                                         10
+                                         Lizenzmodell
+       ▪ Pro Prozessor-Kern (Core)
+           − Minimum 16 Cores müssen lizenziert werden. 
+              Beim kauf des Servers unbedingt beachten.
+       ▪ Datacenter pro Core ca. 300 CHF
+       ▪ Standard pro Core ca. 55 CHF
+       ▪ Speziallizenzierung für
+           − NGOs
+           − Education
+       ▪ Lizenzrechner von HP: 
+          https://techlibrary.hpe.com/us/en/enterprise/servers/licensing/index.aspx
+                                                      Kevin Wyer                                          11
+                                      Server Manager
+      ▪ Verwaltung des Servers
+          − Computername
+          − Domäne
+          − IP Konfiguration
+          − Remoteadministration
+          − Windows Updates
+                                                   Kevin Wyer                                      12
+      Learning bydoing
+      PRACTICE
+                                                  Kevin Wyer                                     13
+                                     Auftrag
+      ▪ Installieren dieser Systeme:
+          Server                                     Funktion
+          Server Basisinstallation GUI               SysprepImage
+          Server Installation mit GUI                Domain Controller (SRVDC)
+          Server Installation ohne GUI               SRVCore
+          Client Installation                        SmartlearnClient oder eigene
+                                                     Installation (CLI01)
+      ▪ Server OS Windows Server 2022 Standard/Datacenter
+      ▪ Grundkonfiguration der Server
+          − Name, Remote Management Windows Server, IP Adressierung
+                                                  Kevin Wyer                                     14
+      INSTALLATION SERVER 2022
+                                            Kevin Wyer                                15
+                                 Installationsarten
+      ▪ Bootbares Medium
+         − USB Stick
+         − CD
+      ▪ ISO Datei
+         − Download bei Microsoft
+         − Einbinden in VM
+      ▪ Bootarchitektur beachten
+         − BIOS
+         − UEFI
+                                            Kevin Wyer                                16
+                                 Installation
+                                            Kevin Wyer                                17
+                                          Installation
+       Ohne GUI                                             Mit GUI
+                                                        Kevin Wyer                                           18
+                                 Installation
+                                            Kevin Wyer                                19
+                                 Installation
+                                            Kevin Wyer                               20
+                                 Abschluss Installation
+                                            Kevin Wyer                                21
+       Patching, Remote Desktop, IE Vor Sysprep
+       BASISKONFIGURATION VORNEHMEN
+                                                     Kevin Wyer                                        22
+                                         Grundkonfiguration LocalServer
+       ▪ Basiskonfiguration unter LocalServer
+       ▪ Remotedesktop aktivieren
+       ▪ Updates Installieren
+       ▪ IE Enhanced Security Configuration
+          OFF -> Administrators
+                                                      Kevin Wyer                                          23
+                                          Grundkonfiguration
+       Remotedesktop                                         IE Enhanced Security Configuration
+                                                        Kevin Wyer                                            24
+      BASISKONFIGURATION SRVDC
+                                            Kevin Wyer                               27
+                                       Konfiguration SRVDC
+       ▪ Server Manager
+       ▪ Windows Admin Center 
+           − Werden wir noch anschauen
+                                                    Kevin Wyer                                       28
+                                         Grundkonfiguration LocalServer
+       ▪ Servername anpassen
+       ▪ Ethernet Konfiguration
+       ▪ Updates Installieren
+       ▪ Updates konfigurieren
+                                                      Kevin Wyer                                          29
+                                         Grundkonfiguration «Ethernet»
+       ▪ Konfiguration des Ethernet Adapter 0
+       ▪ Windows +R «ncpa.cpl»
+       ▪ IP Konfiguration
+           − IP/Subnetz: 192.168.110.XX/24
+           − Gateway: 192.168.110.1
+           − DNS: 192.168.110.1
+       ▪ Eigenes Adresskonzept verwenden
+                                                       Kevin Wyer                                          30
+                                         Abschluss Grundkonfiguration
+                                                      Kevin Wyer                                          31
+                                     Befehle
+      ▪ Standard Desktop Icons einblenden
+          − Windows +R «desk.cpl,5»
+                                                 Kevin Wyer                                     32
+      BASISKONFIGURATION SRVCORE
+                                            Kevin Wyer                               33
+                                        Grundkonfiguration
+       ▪ CTRL+ALT+INSERT (VMPlayer)
+       ▪ Passwort ändern
+                                                     Kevin Wyer                                        34
+                                          Grundkonfiguration mit Terminal
+       ▪ Alle Basiskonfigurationen mit einem 
+          Befehl:
+           − sconfig
+       ▪ Servername anpassen
+       ▪ Remotedesktop aktivieren
+       ▪ Ethernet konfigurieren
+       ▪ Updates installieren
+                                                       Kevin Wyer                                           35
+                                         Remote Konfiguration CORE
+       ▪ ConfigureRemote Management
+           − EnablePing
+       ▪ Verbindung zwischen GUI und CORE 
+          Server mit Ping prüfen
+       ▪ winrmkonfigurieren CMD:
+           − WinRMquickconfig
+       ▪ SRVDC CMD
+           − WinRMset winrm/config/client 
+              @{TrustedHosts=“192.168.XXX.XX”}
+           − IP des SRVCoreServers
+       ▪ SRVCORE CMD
+           − WinRMset winrm/config/client 
+              @{TrustedHosts=”192.168.XXX.XX“}
+           − IP des SRVDC Servers
+                                                      Kevin Wyer                                         36
+                                        Remote Konfiguration von SRVCore
+                                                     Kevin Wyer                                         37
+                                          Remote Konfiguration ist nun möglich
+                                                        Kevin Wyer                                            38
+      Selbständig durchführen oder VM von Smartlearnverwenden.
+       CLIENT INSTALLATION
+                                                   Kevin Wyer                                     39
+             Microsoft System Administration
+             Active Directory Domain 
+             Services Part 1
+                                                          Kevin Wyer                                              1
+                                        Lernziele
+       ▪ Die studierenden
+           − können erklären was ein Verzeichnisdienst ist
+           − wissen was die Rolle Active Directory Domain Services (ADDS) ist
+           − wissen welche Komponenten ADDS beinhaltet
+           − wissen welche Strukturen es in ADDS gibt
+           − könne die 5 Betriebsmaster Rollen benennen
+           − Können die Rolle ADDS installieren und konfigurieren
+                                                     Kevin Wyer                                         2
+                                        Praktische Bewertung
+       ▪ Installierte Domäne (Initialen-tsbe.local)
+       ▪ Administrator umbenannt
+       ▪ Recycle bin aktiviert
+       ▪ NTP konfiguriert
+       ▪ OU Struktur mit Benutzer erstellt
+                                                    Kevin Wyer                                         3
+                                   Study
+      ▪ Active Directory Domain Services | Microsoft Learn
+      ▪ Planen der Platzierung der Rolle „Betriebsmaster“ | Microsoft Learn
+      ▪ Planen der Platzierung des globalen Katalogservers | Microsoft Learn
+      ▪ Microsoft Windows Server 2012 R2 -Das Handbuch 
+         − S. 424 –432
+         − S. 437 –448
+                                              Kevin Wyer                                  4
+                                         Verzeichnisdienst
+       ▪ Verschiedene Produkte
+           − Active Directory Domain Services (ADDS) (Microsoft)
+       ▪ Hierarchische Datenbank
+       ▪ Client-Server-Prinzip
+                                                       Kevin Wyer                                          5
+                                            ADDS –Active Directory Domain Services 
+          ▪ Abbilden des Unternehmens im                       ▪ Komponenten
+             Active Directory muss gut geplant                     − Schema
+             sein.                                                      − Vorlagen für Objekte die erstellt werden 
+          ▪ Heutzutage wird meist nur noch eine                           können
+             Domäne für das gesamte                                − Konfiguration
+             Unternehmen erstellt.                                      − Beschreibt die Gesamtstruktur
+                                                                   − Domain
+          ▪ Server 2019 –Keine neuen AD                                 − Alle Informationen zusammen
+             Features: Microsoft
+          ▪ JET-Datenbank (Joint-Engine-
+             Technologie)
+                                                          Kevin Wyer                                              6
+                                           Active Directory Container
+       ▪ Gesamtstruktur (Forest) 
+            − Dieser Container kann Strukturen (Trees) beinhalten
+       ▪ Struktur (Tree) 
+            − Dieser Container beinhaltet die einzelnen Domänen von Active Directorys
+            − Childdomains-Subdomänen
+            − Treedomain-Domäne in eine neuen Tree
+       ▪ Domänen
+            − Dieser Containertyp beinhaltet Organisationseinheiten
+       ▪ Organisationseinheiten (OrganizationalUnits, OUs)
+            − Dieser Container beinhaltet Benutzer und Computerkonten, kann aber auch weitere 
+               OUs beinhalten.
+            − Mithilfe OUs können Objekte im Active Directory organisiert werden
+                                                          Kevin Wyer                                             7
+                                         Beispiel
+                                                      Kevin Wyer                                          8
+                                           Begriffe
+       ▪ OrganizationalUnit –OU                               ▪ Objekte
+            − Verwaltungscontainer für Benutzer,                   − Element die in Active Directory erstellt 
+               Computer, Gruppen und Drucker                          werden können:
+       ▪ Replikation                                                   − Benutzer, Computer, Gruppen und 
+            − Daten werden innerhalb der Domäne von                      Drucker
+               einem DC zum anderen repliziert
+       ▪ Site
+            − Physikalisch getrennter Standort meist 
+               über VPN verbunden
+                                                          Kevin Wyer                                             11
+                                       DC –Domain Controller
+       ▪ Verwaltung einer Domäne innerhalb eines Forest
+       ▪ Innerhalb einer Domäne kann es mehrere DCs geben 
+       ▪ Organisation und Verwaltung von
+           − Benutzer-, Computer-, Freigaben-, und Druckerinformationen
+       ▪ Authentifizierung von Benutzer läuft über einen DC (Kerberos)
+                                                    Kevin Wyer                                       12
+                                        GC –Global Catalog
+       ▪ Erster DC einer Gesamtstruktur ist immer GC
+       ▪ An jeder Site/Standort sollte ein DC mit GC konfiguriert werden
+       ▪ Jeder DC kann theoretisch auch GC sein
+       ▪ Der GC enthält Informationen der Gesamtstruktur und somit von jeder 
+          Domäne.
+                                                     Kevin Wyer                                         13
+                                          FSMO –Flexible Single Master Operations
+       ▪ 5 Rollen
+           − Pro Forest einmalige Rollen
+                − Schema Master
+                − Domain NamingMaster
+           − Pro Domain vorhanden
+                − RID Master
+                − PDC Emulator
+                − Infrastructure Master
+       ▪ Support Microsoft
+       ▪ Auf Deutsch auch «Betriebsmaster Rollen» genannt
+                                                        Kevin Wyer                                            14
+                                      FSMO Rollen
+      Schema Master                                   Domain NamingMaster
+      ▪ Schema Master wird benötig um das             ▪ Wird benötigt
+         Schema zu erweitern                              − Wenn die Domäne erweitert wird
+          − Exchange macht dies                           − Zum Hochstufen eines neuen DCs
+      ▪ Um das Schema anzuschauen muss                ▪ Er hat im normalen produktiv Betrieb 
+         auf dem DC der Befehl: «regsvr32                keine Aufgabe
+         schmmgmt.dll» ausgeführt werden. 
+         Danach kann ein mmc geöffnet 
+         werden und das Snap-In Active 
+         Directory-Schema geöffnet werden.
+                                                  Kevin Wyer                                      15
+                                      FSMO Rollen
+      RID Master                                      PDC Emulator
+      ▪ Verteilt RID (Relative identifier)            ▪ Anwendung und Verwaltung von 
+      ▪ Wird für die SIDs benötigt (Security ID)         Gruppenrichtlinien
+      ▪ Jedes Objekt erstellt wird erhält eine        ▪ Kennwortänderungen laufen über den 
+         SID                                             PDC
+      ▪ Ist der RID Pool eines DCs                    ▪ Zeitserver der Domäne
+         aufgebraucht erhält er vom RID-
+         Master neue RIDs zugewiesen
+      ▪ Eine SID ist einzigartig
+                                                   Kevin Wyer                                      16
+                                           FSMO Rollen
+       Infrastructure Master
+         ▪ Berechtigungsverwaltung wenn mehrere Domänen im Einsatz sind
+         ▪ Beschleunigt Abfragen von Berechtigungen und fungiert als ein Cache
+         ▪ Sollte nicht auf einem GC sein
+              − Ausser wenn nur 1 DC existiert
+              − Bei 2 DCs beide zu GC machen
+                                                         Kevin Wyer                                             17
+                                          Verteilung von Betriebsmastern
+       ▪ Zur optimalen Verteilung der FSMO-Rollen gibt es folgende 
+          Empfehlungen:
+           − Der Infrastrukturmaster sollte nicht auf einem globalen Katalog liegen, da 
+              ansonsten Probleme bei der Auflösung von Gruppen, die Mitglieder aus 
+              verschiedenen Domänen haben, auftreten können
+           − Domänennamenmaster und Schemamaster sollten auf einem gemeinsamen 
+              Domänencontroller liegen, der auch globaler Katalog ist
+           − PDC-Emulator und RID-Master kommunizieren viel miteinander und sollten 
+              daher auf einem gemeinsamen Domänencontroller liegen, der auch globaler 
+              Katalog ist
+       ▪ Die Verteilung der Rollen ist eine kleine Wissenschaft, bei einem Forest 
+          mit mehreren Domänen muss dies gut geplant werden.
+                                                       Kevin Wyer                                           18
+                                       RODC –Read OnlyDomain Controller
+      ▪ Schutz für Domäne an einem zweiten Standort
+      ▪ Replizieren nur Informationen
+      ▪ Nehmen selber keine Änderungen an
+      ▪ Kennwörter werden nur von gewünschten Accounts repliziert dies 
+         wird mittels Gruppen gesteuert:
+          − Allowed RODC Password Replication Group
+          − Denied RODC Password Replication Group
+                                                    Kevin Wyer                                      19
+                                    Tools
+      ▪ Active Directory Administrative Center
+      ▪ Active Directory Domains andTrusts
+      ▪ Active Directory Sites and Services
+      ▪ Active Directory Users andComputers
+      ▪ ADSI Edit
+      ▪ DNS
+      ▪ Group PolicyManagement
+                                                Kevin Wyer                                    20
+                                        Active Directory Administrative Center
+       ▪ Neue Administrative Center
+           − Eingeführt mit Server 2012
+       ▪ Neue Features
+           − Recycle Bin
+           − Fine-GrainedPassword Policy
+           − Windows PowerShellHistoryViewer
+                                                     Kevin Wyer                                         21
+      Learning bydoing
+      PRACTICE
+                                                  Kevin Wyer                                     22
+                                     Auftrag
+      ▪ Installation und Konfiguration der ADDS Rolle
+          − Nach Vorgaben siehe Foliensatz
+                                                  Kevin Wyer                                    23
+                                     Requirements
+      ▪ Servername angepasst
+      ▪ IP Konfiguration
+          − Fixe IP
+          − DNS 127.0.0.1
+      ▪ Windows Updates installiert
+                                                 Kevin Wyer                                    24
+                                        Lokaler Admin Account
+       ▪ Lokaler Admin Account vor der Installation umbenennen
+       ▪ Windows + R -> Lusrmgr.msc
+       ▪ Windows + X -> C
+       ▪ LocalUser andGroups -> Users
+       ▪ Rechtsklick auf Administrator -> Rename
+       ▪ Neuer Name domainadmin
+                                                    Kevin Wyer                                        25
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            26
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            27
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            28
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            29
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            30
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                             31
+                                           ADDS Rollen Installation
+       ▪ Domain Name festlegen
+       ▪ Initialen-tsbe.local
+            − kw-tsbe.local
+       ▪ Mit dem gleichen Wizard kann ein 
+           weiterer Domain Controller 
+           hinzugefügt werden oder eine neue 
+           Childdomainerstellt werden.
+                                                          Kevin Wyer                                            32
+                                       Microsoft warum?
+                                                   Kevin Wyer                                      33
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            34
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            35
+                                           ADDS Rollen Installation
+                                                          Kevin Wyer                                            36
+                                           ADDS Rollen Installation
+                                                              ▪ Neustart erfolgt nach der Installation
+                                                              ▪ Erstes Login erfolgt wieder mit 
+                                                                  domainadmin
+                                                              ▪ Domain ist installiert
+                                                          Kevin Wyer                                            37
+                                        Neue Verwaltungstools
+                                                    Kevin Wyer                                        38
+                                         Active Directory Users andComputers
+       ▪ Verwaltung von Active Directory 
+          Objekten:
+           − User
+           − Computer
+           − Gruppen
+                                                       Kevin Wyer                                          39
+                                         Active Directory Users andComputers
+                                                       Kevin Wyer                                          40
+                                        EnableRecycle Bin
+                                                    Kevin Wyer                                        41
+                                        Fine-GrainedPassword Policy
+                                                          ▪ Rechtsklick -> New -> Passwords 
+                                                             Settings
+                                                     Kevin Wyer                                         42
+                                        NTP Konfiguration
+       ▪ Konfiguration erfolgt mit CMD
+           − w32tm /config/manualpeerlist:ntp.metas.ch/syncfromflags:manual
+             /reliable:yes /update
+           − w32tm /config/update
+           − netstopw32time
+           − netstartw32time
+           − w32tm /query/peers
+           − w32tm /query/status
+           − w32tm /query/configuration
+                                                     Kevin Wyer                                         43
+                                           Core Server Domain Join
+       ▪ DNS Anpassen
+            − Sconfig
+            − 8 -> 1 -> 2
+            − 192.168.210.10 -> Enter
+            − Enter
+       ▪ Domain Join
+            − Sconfig
+            − 1 -> D ->
+                                                         Kevin Wyer                                             44
+                                          User Switch an Core Server
+       ▪ Entsperren mit CTRL + ALT + DLE 
+          (INSERT)
+           − ESC
+           − Other User
+           − Benutzername und Passwort eingeben
+                                                        Kevin Wyer                                           45
+                                          Client in die Domain aufnehmen
+                                                             IP Adresse Konfiguration
+                                                       Kevin Wyer                                           46
+                                         Client Domain Join
+                                                      Kevin Wyer                                          47
+                                       Weiter Aufgaben
+      ▪ Konzipieren und erstellen einer OU Struktur
+          − Die TSBE als Schule soll abgebildet werden
+          − Computer-, Server-und User-objekte für Studenten und Dozenten sollen 
+             organisiert werden können
+                                                   Kevin Wyer                                      48
+             Microsoft System Administration
+             Domain Name System
+                                                          Kevin Wyer                                              1
+                                        Lernziele
+       ▪ Die studierenden
+           − können DNS grundkonfigurieren
+           − verstehen was AD integrierte DNS Zonen sind
+                                                     Kevin Wyer                                         2
+                                        Praktische Bewertung
+       ▪ Korrekte und vollständige Konfiguration des DNS Server
+           − Forwarder
+           − Revers Lookup Zone
+           − Zusätzliche AD integrierte Forward Zone testdomain.ch
+           − DNS Aging
+                                                    Kevin Wyer                                         3
+                                   Study
+      ▪ Domain Name System (DNS) | Microsoft Learn
+      ▪ Microsoft Windows Server 2012 R2 –Das Handbuch S. 843
+      ▪ Windows Server 2019 –Schieb S. 358
+                                              Kevin Wyer                                  4
+                                    Domain Name System
+      ▪ Namensauflösung -> google.ch -> 172.217.168.35
+          − Forward Lookup Zones→Name zu IP
+          − Revers Lookup Zones→IP zu Name
+      ▪ Fixer Bestandteil von ActiveDirectory
+      ▪ Eigene Zonen können gehostet werden
+          − Achtung Split DNS beachten
+      ▪ Kann veröffentlicht werden
+      ▪ Port 53 UDP/TCP
+                                                Kevin Wyer                                   5
+                                         DNS Rolle Windows Server 2019
+       ▪ Verwaltung                                       ▪ Über DNS finden die Clients:
+           − GUI: DNS MMC                                     − ActiceDirectory
+           − Konsole: dnscmd                                  − Global Catalaog
+       ▪ Forward Lookup Zone                                  − PDC Emulator
+           − _msdcs.kw-tsbe.local                             − Domains
+           − kw-tsbe.local                                ▪ Jede Domain in der Gesamtstruktur 
+       ▪ Reverse Lookup Zone                                 hat eine eigene Zone
+           − Muss manuell erstellt werden                 ▪ FQDN Beispiel:
+       ▪ Standard Zonen sind ActiveDirectory                  − SRVDC01.kw-tsbe.local
+          integriert
+           − Ntds.dit
+                                                      Kevin Wyer                                         6
+                                         Konfigurationen/Verwaltung
+       ▪ Listening Interface
+           − IPv4, IPv6
+       ▪ Forwarders
+           − Roots hints
+           − Internet Service Provider
+       ▪ Debugund Event Logging
+       ▪ DNS Aging
+                                                      Kevin Wyer                                          7
+                                    Zonen Typen
+      ▪ Primary zone
+          − Neue Zone
+      ▪ Secondaryzone
+          − Bereits vorhanden Zone (Redundanz)
+          − Bei AD integrierten Zonen muss dies nicht konfiguriert werden
+      ▪ Stubzone
+      ▪ ActiveDirectory integriert
+          − Zonen werden direkt in die AD Datenbank geschrieben und so an andere DCs 
+            mit DNS repliziert
+                                                Kevin Wyer                                    8
+                                         AD Zone Replication Scope
+                                                           ▪ Zone kann im Gesamten Forest
+                                                              repliziert werden
+                                                           ▪ Zone kann aber auch nur innerhalb 
+                                                              einer Domain repliziert werden
+                                                       Kevin Wyer                                          9
+                                     DNS Verwaltung
+      ▪ Domain Admins
+          − Domain DNS Zone kann administriert werden
+      ▪ Enterprise Admins
+          − Können alle DNS Zonen administrieren
+          − Domain und Forest
+      ▪ DNSAdmins(pro Domain)
+          − Einzelne User können berechtigt werden um die DNS Zonen der Domain zu 
+            administrieren
+                                                 Kevin Wyer                                     10
+                                      Zonen Optionen
+      ▪ Dynamische Updates
+      ▪ DNS Aging
+          − Aufräumen von DNS
+      ▪ SOA Eintrag
+          − Pro Zone vorhanden
+      ▪ Name Server Übersicht
+      ▪ Zonen Transfer konfigurierbar (Wenn nicht AD integriert muss dies 
+         manuell konfiguriert werden)
+                                                  Kevin Wyer                                      11
+                                         Conditional Forwarder
+       ▪ Weiterleitung an andere DNS Server innerhalb der Organisation
+       ▪ Beim erstellen einer Domänen Vertrauensstellung notwendig
+                                                      Kevin Wyer                                          12
+      Learning bydoing
+      PRACTICE
+                                                  Kevin Wyer                                     13
+                                         Auftrag
+       ▪ Korrekte Konfiguration:
+           − Listening Interface
+           − Forwarders
+           − DNS Aging
+       ▪ Erstellung einer neuen Zone
+           − Reverse Zone erstellen
+           − Testdomain.ch
+               − Standalone
+               − Wichtig: Anschliessend AD integrieren
+                                                       Kevin Wyer                                          14
+                                        Weiter Aufträge
+       ▪ DNS Cache einblenden im GUI
+           − Wo findet sich dies?
+       ▪ Konsole dnscmdund PowerShell
+           − Server Cache leeren
+           − Sicherung der DNS Zonen ausführen
+           − Kommandozeilentools kennenlernen
+                                                     Kevin Wyer                                         15
+                                        DNS Konfiguration
+                                                         ▪ DNS Server Einstellungen öffnen
+                                                         ▪ Rechtsklick auf den Servernamen →
+                                                            Properties
+                                                     Kevin Wyer                                        16
+                                        DNS Konfiguration
+                                                                      Wenn IPv6 im Netzwerk 
+                                                                      nicht konfiguriert ist 
+                                                                      empfiehlt es sich dieses 
+                                                                      unter dem Netzwerk 
+                                                                      Adapter zu deaktivieren. 
+                                                                      ACHTUNG: bei einem 
+                                                                      Exchange Server darf dies 
+                                                                      nicht gemacht werden!
+                                                     Kevin Wyer                                        17
+                                        DNS Konfiguration
+                                                         ▪ Am besten DNS Server vom ISP als 
+                                                            Forwarderseintragen
+                                                         ▪ Theoretisch nicht nötig da auch die 
+                                                            Root hintsvorhanden sind
+                                                         ▪ Root hintssind die weltweiten Root 
+                                                            DNS Server
+                                                     Kevin Wyer                                        18
+                                         DNS Konfiguration Aging
+       ▪ DNS Aginglöscht DNS Einträge die 
+          älter als der definierte Wert sind
+       ▪ Geräte aktualisieren normalerweise 
+          ihre Einträge dynamisch
+       ▪ Die Konfiguration kann pro Zone 
+          gemacht werden oder für alle Zonen
+           − Rechtsklick auf Zone →Properties
+                                                      Kevin Wyer                                          19
+                                          Reverse Zone erstellen
+                                                        Kevin Wyer                                           20
+                                          Reverse Zone erstellen
+                                                        Kevin Wyer                                           21
+                                          Reverse Zone erstellen
+                                                        Kevin Wyer                                           22
+                                          Reverse Zone erstellen
+                                                        Kevin Wyer                                           23
+                                          Reverse Zone erstellen
+                                                            ▪ Eintrag vom DC fehlt
+                                                            ▪ Manuelle Registrierung durchführen:
+                                                                 − ipconfig/registerdns
+                                                        Kevin Wyer                                           24
+                                          Reverse Zone erstellen
+                                                            Nach der Ausführung wird sich der Host 
+                                                            spätestens nach 15min eintragen.
+                                                            Testen:
+                                                        Kevin Wyer                                           25
+                                         Forward Lookup Zone erstellen
+                                                      Kevin Wyer                                          26
+                                         Forward Lookup Zone erstellen
+                                                      Kevin Wyer                                          27
+                                         Forward Lookup Zone erstellen
+                                                      Kevin Wyer                                          28
+                                      Forward Lookup Zone
+      ▪ Die Zonen Datei wurde als testdomain.ch.dnsgespeichert
+      ▪ Speicherort: C:\Windows\System32\dns
+      ▪ Kann mit Notepad geöffnet werden
+      ▪ Dies funktioniert nur mit einer Zone
+         die nicht AD integriert ist.
+                                                   Kevin Wyer                                     29
+             Microsoft System Administration
+             ActiveDirectory Domain 
+             Services Part 2
+                                                          Kevin Wyer                                              1
+                                        Lernziele
+       ▪ Die studierenden
+           − können die Domäne mit einem weiter DC ergänzen
+           − können einen DC migrieren
+           − können eine Domäne auf einem Core Server installieren und deinstallieren
+                                                     Kevin Wyer                                         2
+                                       Study
+       ▪ Microsoft Windows Server 2012 R2 -Das Handbuch 
+           − Kapitel 15 ab S. 559
+               − Verwenden der Domänencontrollerdiagnose
+               − Bereinigen von AD und Entfernen von Domänencontrollern S. 591
+                                                    Kevin Wyer                                        3
+                                        Praktische Bewertung
+       ▪ Installation Server VmWS2
+       ▪ Installation eines zusätzlichen DCs in der bestehenden Domain
+           − VmWS2
+           − Transferierte FSMO Rollen
+       ▪ Deinstallation des DCs VmWS1
+       ▪ Optional:
+           − Installation einer neuen Domain auf dem Core Server
+               − Abgabe PowershellCommands als File 
+           − Deinstallation der neuen Domain auf dem Core Server
+               − Abgabe PowershellCommandsals File
+                                                    Kevin Wyer                                         4
+                                  Redundanz
+      ▪ Ein DC Single Point ofFailure
+      ▪ Verteilung von FSMO Rollen ist möglich
+      ▪ Zweiter DC muss immer auch als GC Konfiguriert werden
+      ▪ Bei grösseren und komplexeren Gesamtstrukturen muss die 
+        Aufteilung der FSMO Rollen und GC Rollen gut geplant werden.
+                                             Kevin Wyer                                  5
+                                        Migration DC
+       ▪ Bei neuen Server Versionen muss ein DC migriert werden
+       ▪ Neu Installation vom OS und der ADDS Rolle
+       ▪ FSMO Rollen übertragen
+       ▪ Alter DC muss demountetwerden
+           − Enterprise Admins
+                                                     Kevin Wyer                                         6
+                                          DC kann nicht «sauber» entfernt werden
+       ▪ DC hat einen Hardware defekt
+       ▪ Irreparabel beschädigt
+       ▪ Löschung des DC aus der Domain Controller OU
+       ▪ Löschung des DC aus ActiveDirectory Site andServices
+       ▪ FSMO Rolle transferieren (falls nötig)
+       ▪ MetadataCleanupmit cmd:
+           − Ntdsutil
+                − metadatacleanup
+                − removeselectedserver<servername>
+                                                        Kevin Wyer                                           7
+                                         FSMO Rollen Migration
+       ▪ FSMO Rollen werden immer gezogen!
+       ▪ Inhaber überprüfen mit cmd:
+           − netdomqueryfsmo
+       ▪ Inhaber überprüfen mit PowerShell:
+           − Get-ADForestyourdomain| Format-Table 
+              SchemaMaster,DomainNamingMaster
+           − Get-ADDomainyourdomain| format-table
+              PDCEmulator,RIDMaster,InfrastructureMaster
+                                                      Kevin Wyer                                          8
+      Learning bydoing
+      PRACTICE
+                                                  Kevin Wyer                                     9
+                                     Auftrag
+      ▪ Installieren des Server VmWS2
+          − Als Domain Controller Installieren
+          − Replikation mit repadminüberprüfen
+          − FSMO Rolle verschieben
+      ▪ Deinstallieren des DC VmWS1
+      ▪ Optional
+          − Core Server aus der Domain «Initalen-tsbe.local» nehmen
+          − Installation einer neuen Domain auf dem Core Server
+          − Deinstallation der neuen Domain auf dem Core Server
+                                                  Kevin Wyer                                     10
+                                  VmWS2
+      ▪ Grundkonfiguration des OS
+      ▪ Achtung IP Adresskonflikt vermeiden
+      ▪ Server in die Domain «Initialen-tsbe.local» aufnehmen
+                                             Kevin Wyer                                 11
+                                          VmWS2 Domain Controller Installation
+       ▪ Rolle über GUI hinzufügen
+           − Auf VmWS2 die Rolle Active Directory Domain Services Installieren
+       ▪ Promote Wizard starten
+           − Nach Reboot der Rollen installation
+                                                        Kevin Wyer                                           12
+                                          VmWS2 Domain Controller Installation
+                                                        Kevin Wyer                                           13
+                                          VmWS2 Domain Controller Installation
+                                                        Kevin Wyer                                           14
+                                          VmWS2 Domain Controller Installation
+                                                        Kevin Wyer                                           15
+                                          VmWS2 Domain Controller Installation
+                                                            ▪ Nach der Installation erfolgt ein 
+                                                               Neustart
+                                                            ▪ Login mit User domainadmin
+                                                            ▪ IP Konfiguration anpassen
+                                                                 − Primäre DNS VmWS2 localhost
+                                                                 − Sekundärer DNS VmWS1
+                                                        Kevin Wyer                                           16
+                                         Replikation überprüfen
+       ▪ Mit CMD Befhel
+           − repadmin/showrepl
+                                                       Kevin Wyer                                          17
+                                        FSMO Rolle verschieben
+       ▪ Mit CMD Befehl prüfen                           ▪ Verschieben der Rolle erfolgt nun 
+           − netdomqueryfsmo                                 mit GUI folgende MMCs werden 
+                                                             benötigt:
+                                                         ▪ ActiveDirectory Users and
+                                                             Computers
+                                                         ▪ ActiveDirectory Domains andTrusts
+       ▪ https://www.komdat.at/fsmo-rollen-              ▪ ActiveDirectory Schema
+          auf-server-2012-oder-server-2016-
+          uebertragen/
+                                                     Kevin Wyer                                         18
+                                        FSMO Rolle verschieben
+       ▪ In der Konsole: «ActiveDirectory Users           ▪ Die drei Rollen: RID, PDC und 
+          andComputers»                                      Infrastructure können nun im neuen 
+       ▪ Rechtsklick auf die Domain                          Fenster verschoben werden.
+           − OperationsMasters…
+                                                     Kevin Wyer                                         19
+                                        FSMO Rolle verschieben
+       ▪ In der Konsole: «ActiveDirectory 
+          Domains andTrusts»
+       ▪ Rechtsklick auf ActiveDirectory 
+          Domains andTrusts
+           − Change Active Dorectory Domain 
+             Controller… (VmWS2 wählen)
+           − OperationsMasters…
+                                                     Kevin Wyer                                         20
+                                        Schema Master verschiebe
+       ▪ Window+ R                                       ▪ Nun wie bei den anderen Rollen
+           − regsvr32 schmmgmt.dll                       ▪ Rechtsklick auf ActiveDirectory 
+           − Mmc                                            Schema
+       ▪ Im neuen mmc                                        − Wieder DC wechseln
+           − File                                            − OperationsMaster
+           − Add/Remove Snap-in…
+           − «Active Directory Schema» wählen
+                                                    Kevin Wyer                                        21
+                                        FSMO Rollen prüfen
+                                                    Kevin Wyer                                        22
+                                        FSMO Rollen verschieben FAST
+       ▪ Move-ADDirectoryServerOperationMasterRole-Identity <Ziel-DC> -
+          OperationMasterRoleSchemaMaster, RIDMaster, InfrastructureMaster, 
+          DomainNamingMaster, PDCEmulator
+                                                     Kevin Wyer                                        23
+                                         Replikation überprüfen
+       ▪ Mit CMD Befhel
+           − repadmin/showrepl
+                                                       Kevin Wyer                                          24
+                                    VmWS2 GC Überprüfung
+      ▪ ActiveDirectory Sites and Services öffnen
+      ▪ Rechtsklick auf NRFS Settings unter dem Server VmWS2 →Properties
+                                               Kevin Wyer                                   25
+                                    VmWS1 entfernen
+      ▪ Voraussetzungen
+          − VmWS2 ist nun DC
+          − VmWS2 ist GC
+          − FSMO Rollen wurden verschoben
+          − Replikation wurde überprüft
+      ▪ DNS anpassen
+          − Primärer DNS VmWS2 setzten
+                                                Kevin Wyer                                    26
+                                  VmWS1 demote
+      ▪ Test mit PowerShelldurchführen:
+         − Test-ADDSDomainControllerUnistallation
+                                             Kevin Wyer                                27
+                                  VmWS1 demote
+      ▪ Für die Deinstallation wird der normale Rollen Wizard verwendet
+                                             Kevin Wyer                                28
+                                  VmWS1 demote
+                                             Kevin Wyer                                29
+                                  VmWS1 demote
+                                             Kevin Wyer                                30
+                                  VmWS1 demote
+                                             Kevin Wyer                                31
+                                   VmWS1 demote
+                                                  ▪ Nach der Deinstallation startet der 
+                                                     Server neu
+                                                  ▪ Den Server brauchen wir nu 
+                                                     nichtmehr
+                                               Kevin Wyer                                  32
+                                    VmWS2
+      ▪ MMC ActiveDirectory Sites and
+         Services öffnen
+          − Löschen von SRVDC
+                                               Kevin Wyer                                   33
+                                        Weiter Aufträge
+       ▪ Mit den nun gesicherten Skripts aus den bisherigen Installationen 
+          könnt ihr nun auf dem Core Server ebenfalls eine Domain Installieren 
+          und diese anschliessend wieder deinstallieren. Allfällige Recherche in 
+          den E-Books und im Internet sind gegeben falls erforderlich.
+       ▪ Neuen DC mit PowerShellerstellen Link
+       ▪ DC mit PowerShelldeinstallieren Link
+       ▪ Bitte die 2 Files erstellen
+           − 1 Installation des DC mit Rollen und Promote
+           − 2 Deinstallation des DC demote
+                                                     Kevin Wyer                                         34
+          DHCP
+          Dynamic Host 
+          ConfigurationProtocol
+                                             Kevin Wyer                                 1
+                                 Lernziele
+      ▪ Die studierenden
+         − verstehen wie DHCP funktioniert
+         − können unter Windows Server 2022 einen DHCP konfigurieren
+         − können DHCP als Failover konfigurieren
+                                             Kevin Wyer                                 2
+                                       Study
+       ▪ Windows Server 2019 –Schieb
+           − Kapitel 13
+                                                    Kevin Wyer                                         3
+                                         Praktische Bewertung
+       ▪ Konfigurierte DHCP:
+           − Scope für 192.168.110.0/24
+           − Vollständig Konfigurierte Optionen
+           − Reservation für Client angelegt
+           − Konfigurierte Failover Server
+       ▪ Bewertung erfolgt mittels DHCP Dump
+           − Netsh dhcp server \\192.168.110.XXXdump
+           − Dump direkt in txt: «Netsh dhcp server \\192.168.110.XXXdump >> VmWSX.txt»
+           − Der Befehl muss auf dem DHCP Server ausgeführt werden die IP entsprich der 
+              IP des Servers
+           − Auf beiden DHCP Servern ausführen
+                                                       Kevin Wyer                                           4
+                                           Dynamic Host Configuration Protocol
+       ▪ Erleichterte Administration des Netzes
+       ▪ Geräte erhalte automatisch IP Konfiguration
+       ▪ Viele weiter Optionen können verteilt werden
+       ▪ Reservationen können erstellt werden
+                                                          Kevin Wyer                                              5
+                                         DHCP abfrage Ablauf
+                                                       Kevin Wyer                                           6
+                                      Windows DHCP Server
+      ▪ Mehrere DHCP Ranges verwertbar
+      ▪ Dynamisches Update von DNS Einträgen
+          − Am besten einen separaten User erstellen und berechtigen.
+      ▪ Filters Denyund Allow
+          − Filter Liste muss in DHCP aktiviert werden
+      ▪ DHCP Failover
+          − Ausfallsichere Konfiguration
+          − MehrerModi Load balanceund Hot standby
+          − Load balanceAktiv Aktiv
+          − Hot standbyAktiv Passiv
+                                                    Kevin Wyer                                       7
+      Learning bydoing
+      PRACTICE
+                                                  Kevin Wyer                                     8
+                                         Auftrag
+       ▪ Installation Rolle DHCP
+           − VmWS1
+       ▪ Grundkonfiguration DHCP
+       ▪ Failover Konfiguration
+           − Mit Server VmWS2 <-
+       ▪ VmWP1
+           − Grundkonfiguration
+           − In die Domäne aufnehmen
+           − In die OU Struktur einpflegen
+                                                        Kevin Wyer                                            9
+                                         VmWS1 Installation DHCP
+       ▪ DHCP Server Rolle installieren
+                                                        Kevin Wyer                                           10
+                                       VmWS1 Konfiguration DHCP
+                                                     Kevin Wyer                                         11
+                                       VmWS1 Konfiguration DHCP
+                                                     Kevin Wyer                                        12
+                                       VmWS1 Konfiguration DHCP
+       ▪ Neues MMC
+                                                     Kevin Wyer                                        13
+                                       VmWS1 Konfiguration DHCP
+                                                     Kevin Wyer                                        14
+                                       VmWS1 Konfiguration DHCP
+                                                     Kevin Wyer                                        15
+                                       VmWS1 Konfiguration DHCP
+                                                     Kevin Wyer                                        16
+                                       VmWS1 Konfiguration DHCP
+                                                     Kevin Wyer                                        17
+                                        Name Protection
+       ▪ Rechtsklick auf Scope→Properties →
+          DNS →Configure
+                                                      Kevin Wyer                                          18
+                                          DHCP IPv4 Server Einstellungen
+                                                          Kevin Wyer                                             19
+                                     DNS dynamicupdate
+                                                      ▪ Default wird der User hinterlegt der 
+                                                         für das Autorisieren des DHCP 
+                                                         verwendet wurde in unserem Fall der 
+                                                         domainadmin.
+                                                      ▪ Besser wäre einen neuen User zu 
+                                                         erstellen und diesem mit der Gruppe 
+                                                         DNSAdminszu berechtigen.
+                                                  Kevin Wyer                                     20
+                                          NETBIOS via DHCP deaktivieren
+       ▪ DHCP Option
+                                                         Kevin Wyer                                            21
+                                      DHCP Testen
+      ▪ Auf dem Lokalen Gerät den Dienst 
+          VmwareDHCP Service Stoppen und 
+          auf Disablestellen.
+      ▪ VMWP1 starten und Netzwerk 
+          Interface auf DHCP umstellen
+                                                    Kevin Wyer                                      22
+                                      DHCP Failover mit VmWS2 und VmWS1
+      ▪ Installieren der DHCP Rolle auf VmWS2
+          − Die Installation erfolgt gleich wie auf VmWS1 mit anschliessender Autorisierung 
+             des DHCP
+          − Es muss kein Scopekonfiguriert werden
+                                                    Kevin Wyer                                      23
+                                           DHCP Failover Konfiguration
+       ▪ DHCP Failover kann pro Scope
+           konfiguriert werden.
+       ▪ Rechtsklick auf den gewünschten 
+           Scope→ConfigureFailover…
+                                                          Kevin Wyer                                             24
+                                           DHCP Failover Konfiguration
+                                                          Kevin Wyer                                             25
+                                           DHCP Failover Konfiguration
+                                                               ▪ Mode hier kann zwischen den beiden 
+                                                                  Modi gewählt werden
+                                                               ▪ Bei Hos standbykann definiert 
+                                                                  werden wie viele IP Adressen der 
+                                                                  standbyServer verwalten kann in 
+                                                                  Prozent.
+                                                               ▪ Ebenfalls bei Load balance wie viel 
+                                                                  der jeweilig Server Verwaltet.
+                                                          Kevin Wyer                                             26
+                                           DHCP Failover Konfiguration
+                                                          Kevin Wyer                                             27
+                                        Weiter Aufgaben
+       ▪ DHCP Reservation für den Client Konfigurieren
+                                                      Kevin Wyer                                          28
+             Microsoft System Administration
+             NTFS –New Technology File System
+             IGDLA –Identities Global Groups Domain 
+             Local Groups Access
+                                                          Kevin Wyer                                              1
+                                 Lernziele
+      ▪ Die studierenden
+         − kennen das NTFS File System
+         − könne Freigaben erstellen
+         − könne mittels NTFS Berechtigungen festlegen
+         − können Userhomesund Userprofile erstellen
+                                             Kevin Wyer                                 2
+                                       Study
+       ▪ Windows Server 2019 –Schieb
+           − Kapitel 6.2, 6.4, 6.5, 6.6, 6.7, 6.8
+       ▪ Microsoft Windows Server 2012 R2 -Das Handbuch
+           − 709 –718
+           − 722 Freigabe erstellen
+           − 725 Versteckte Freigaben
+           − 645 –649 Gruppen
+                                                     Kevin Wyer                                          3
+                                       Dateisysteme Windows
+       ▪ FAT (File AllocationTable)
+           − Grössenlimitierung
+           − Grösser Kompatibilität
+       ▪ NTFS (New Technology File System)
+           − Typisches File System heute
+           − Access Control List (ACL) und Verschlüsselung
+       ▪ ReFS(ResilientFile System)
+           − Anwenderspezifische Fiel System z.B. Exchange Datenbanken
+           − Automatische Korrektur von erkannten Datenfehlern
+           − Zusätzlicher Speicherverlust
+           − Unterstützt keine Bootvolumesund Quotas
+                                                     Kevin Wyer                                         4
+                                          Freigaben / Shares
+       ▪ Freigaben werden benötigt um eine Ordner im Netz zugänglich zu 
+           machen
+       ▪ Einfache Berechtigungsmöglichkeiten
+       ▪ Zugriff auf eine Share erfolgt über den Explorer
+            − \\Servername\Freigabenamen
+       ▪ Versteckte Freigaben
+            − Freigabe Name mit einem $ ergänzen
+       ▪ Windows hat Standardfreigaben
+                                                         Kevin Wyer                                             5
+                                       Windows Freigaben
+                                                     Kevin Wyer                                         6
+                                          Freigaben / Shares
+                                                         Kevin Wyer                                             7
+                                         NTFS Berechtigung «Easy»
+       ▪ Verschiedene Berechtigungen sind 
+          möglich
+       ▪ Reicht für die meisten Berechtigungen
+                                                       Kevin Wyer                                           8
+                                       NTFS Berechtigungen
+       ▪ 14 Verschiedene Berechtigungen möglich
+       ▪ Für anspruchsvolle Berechtigungen
+                                                     Kevin Wyer                                         9
+                                       NTFS Berechtigungen
+       ▪ Die Berechtigungen werden vererbt
+           − Die Vererbung kann unterbrochen werden
+           − Die Vererbung kann wieder aktiviert werden
+       ▪ Zulassen (Allow) und Verweigern (Deny) möglich
+           − Verweigern ist immer stärker
+       ▪ Datei-und Ordnerberechtigungen sind voneinander unabhängig 
+       ▪ Berechtigungen sind immer Kumulativ
+                                                     Kevin Wyer                                        10
+                                           Berechtigungszugriff
+                                                          Kevin Wyer                                              11
+                                       Userhomes
+       ▪ Persönlicher Ordner für User
+       ▪ Wird automatisch als Netzlaufwerk 
+          verbunden bei der Anmeldung
+       ▪ Wird beim Eintrage automatisch 
+          erstellt
+       ▪ ACHTUNG beim Eintragen mittels 
+          Script muss der Ordner manuell 
+          erstellt werden
+                                                    Kevin Wyer                                        12
+                                         Userprofiles
+       ▪ Benutzerprofile
+       ▪ Lokales Client Profile wird auf den Server 
+          gespeichert
+           − Desktop, Downloads, AppDataetc.
+       ▪ Ausschliessend von Verzeichnissen 
+          mittels GPO
+       ▪ Vorteile
+           − Daten sind immer auf allen Geräten 
+              vorhanden
+       ▪ Nachteile
+           − Kann zu Problemen führen mit diversen 
+              Applikationen
+                                                        Kevin Wyer                                           13
+                                           Gruppen in ActiveDirectory
+       ▪ Gruppen Scope
+            − Domain local
+                − Zugriff: Nur innerhalb einer Domäne
+            − Global
+                − Zugriff: Eigene Domäne, Vertrauensvolle 
+                   Domäne
+            − Universal
+                − Zugriff: gesamter Forest
+       ▪ Group type
+            − Security
+                − Zugriffsberechtigungen
+            − Distribution
+                − E-Mail Verteilerlisten
+                                                          Kevin Wyer                                              14
+                                       Standardgruppen im AD
+       Builtin                                            Users
+                                                     Kevin Wyer                                         15
+                                     IGDLA
+      ▪ Identities (I) Global Groups (G) Domain LocalGroups (DL) Access (A)
+          − I Identitäten Benutzer bzw. Computer, die Mitglieder sind von..
+          − G Globale Gruppen nehmen Mitglieder basierend auf Mitgliederrollen auf, die 
+             Mitglieder sind von
+          − DL lokale Gruppen einer Domäne Stellen Verwaltungsfunktionen bereits z.B. 
+             Zugriff auf Ressourcen, denen
+          − A Zugriff auf eine Ressource zugewiesen wurden (Access)
+      ▪ Pro Zugriff muss eine lokale Gruppe erstellt und verwendet werden. 
+         Keine mehrfach Verwendung.
+      ▪ RBAC -RoleBasedAccess Control
+          − Gruppen werden Rollenbasiert erstellt
+                                                  Kevin Wyer                                      16
+                                 Grafische Darstellung
+                                             Kevin Wyer                                17
+                                             Kevin Wyer                                18
+      Learning bydoing
+      PRACTICE
+                                                  Kevin Wyer                                     19
+                                       VmWS1 Userhome Konfiguration
+       ▪ VM Einstellungen VmWS1 Festplatte 
+          hinzfügen.
+       ▪ Auf dem Server VmWS1 muss die 
+          zweite Festplatte im Disk 
+          Management Online geschaltet,  
+          initialisiert (GPT) und anschliessend 
+          NTFS formatiert werden.
+       ▪ Winows+ R diskmgmt.msc
+       ▪ Optionen
+           − Laufwerk: E
+           − Volume Name: Daten
+           − NTFS
+                                                     Kevin Wyer                                        21
+                                       VmWS1 Userhome Konfiguration
+       ▪ Auf dem Laufwerk E die Ordnern 
+          Struktur anlegen:
+           − C:\Userdaten\Userhomes
+           − C:\Userdaten\Userprofiles
+       ▪ Der Ordner Userhomesmuss als erste 
+          Freigegeben werden.
+                                                     Kevin Wyer                                        22
+                                       VmWS1 Userhome Konfiguration
+                                                     Kevin Wyer                                        23
+                                       VmWS1 Userhome Konfiguration
+       ▪ Nun fehlt noch die NTFS Berechtigung.
+       ▪ Berechtigung nach dies Artikel umsetzt
+           − NTFS permissions for Redirected Folders (or Home Directories) | Microsoft Docs
+               − CREATOR OWNER -Full Control (Apply onto: Subfolders and Files Only)
+               − System -Full Control (Apply onto: This Folder, Subfolders and Files)
+               − Domain Admins -Full Control (Apply onto: This Folder, Subfolders and Files)
+               − Everyone -Create Folder/Append Data (Apply onto: This Folder Only)
+               − Everyone -List Folder/Read Data (Apply onto: This Folder Only)
+               − Everyone -Read Attributes (Apply onto: This Folder Only)
+               − Everyone -Traverse Folder/Execute File (Apply onto: This Folder Only)
+           − Vererbung deaktivieren und alle unnötigen Rechte entfernen.
+                                                     Kevin Wyer                                        24
+                                          VmWS1 Userprofiles Konfigurieren
+       ▪ C:\Userdaten\Userprofiles
+            − Freigeben
+            − Berechtigung gemäss folgenden Artikels festlegen:
+                − https://docs.microsoft.com/en-us/windows-server/storage/folder-redirection/deploy-
+                  roaming-user-profiles
+                     − System -Full control (Apply onto: This folder, subfolders and files)
+                     − Administrators -Full Control (Apply onto: This folder only)
+                     − Creator/Owner -Full Control (Apply onto: Subfolders and files only)
+                     − Authenticated Users -List folder / read data (Advanced permissions) Create folders / append 
+                       data (Advanced permissions) (Apply onto:  This folder only)
+                                                         Kevin Wyer                                             25
+                                          VmWS1 Zugriff auf Freigaben Testen
+       ▪ Am besten erfolgt der Zugriff via DC
+            − \\VmWS1\userhomes$
+            − \\VmWS1\Userprofiles
+                                                         Kevin Wyer                                            26
+                                         Userhomesund Profil konfigurieren
+       ▪ \\VmWS1\userprofiles\%username%
+       ▪ \\VmWS1\userhomes$\%username%
+       ▪ Umgebungsvariablen verwenden der 
+          Username wird automatisch eingefügt 
+          nach dem drücken von OK oder Apply
+       ▪ Anschliessend mit dem User auf dem 
+          Client Anmelden
+                                                        Kevin Wyer                                            27
