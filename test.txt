@@ -1,0 +1,2113 @@
+                                                       RDS 4 KMU 
+                                                       Fabrice Bally 
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                
+                 Daten                         
+                 Firma                        OBIS Consulting & ICT-Services GmbH 
+                 Autor                        Fabrice Bally (ID 589) 
+                 Datum                        31.05.2023 
+                 Version                      Version 1.0 
+                 Klassifizierung              Vertraulich 
+                       
+                 Personen                      
+                 Auftraggeber                 Geschäftsleitung OBIS Consulting & ICT-Services GmbH 
+                 Projektleiter                Fabrice Bally 
+                 Fachspezialist               Fabrice Bally 
+                 Experte Extern               Beat Lüthi (SBB AG) 
+                 Experte Intern               Daniel Schaer (GIBB Weiterbildung) 
+                       
+               Vorgaben der Prüfungskommission vom 24. Januar 2023 
+               Folgende Punkte müssen in der Diplomarbeit aufgezeigt und umgesetzt werden: 
+                
+               1.  Überarbeitung der Projektziele, um Nutzen für die Firma OBIS besser messbar 
+                   aufzuzeigen 
+               2.  In der Evaluation muss ein Vergleich mit Microsoft 365 VDI-Service gemacht werden 
+                   (Eigenentwicklung vs. M365) 
+               3.  Erstellung Service mit Factsheet / SLA für Vermarktung des Services inkl. Preismodell und 
+                   Break Even Berechnung 
+                    HFINF              Klasse 21B / Praktische Diplomarbeit 2023            ID:589 
+                                                                                             Seite 1 von 90 
+                                                                                                            
+                  Management Summary 
+                Als moderner ICT-Partner welcher viel Wert auf Sicherheit legt, möchten wir unseren Kunden 
+                eine Produkt anbieten können, welches die heutigen Anforderungen erfüllt. Sicherheit und 
+                Flexibilität sind heute besonders für KMU schwer miteinander zu vereinbaren. Kleinere 
+                Unternehmen müssen Kompromisse eingehen, um die Anforderungen abzudecken. Das 
+                Produkt RDS 4 KMU soll diese Lücke schliessen und unseren Kunden eine schnelle, sichere 
+                Desktop-Serverlösung zu einem fairen Preis bieten.  
+                Das Ziel dieses Projekts ist die Implementierung einer RDS-Lösung mit sitzungsbasierter 
+                Virtualisierung, welche Zweifaktorauthentifizierung unterstützt, Desktops skalierbar 
+                bereitstellt und zu einem Selbstkostenpreis von unter 100 CHF/Monat pro Benutzer 
+                betrieben werden kann. Die potenziellen Kunden sind KMU in der Schweiz mit bis zu 50 
+                Mitarbeitern, welche nach Projektabschluss auf dieser Infrastruktur betrieben werden. 
+                Die Anforderungen an das Endprodukt umfassen eine Desktop-Serverlösung mit 
+                Bereitstellung von Desktops inklusive Kundenapplikationen und Daten. Beim Datenschutz 
+                und der Datensicherheit soll unser Produkt über dem Standard von vergleichbaren 
+                Konkurrenzangeboten liegen. Um dies zu erreichen, legen wir viel Wert auf Automatisierung 
+                im Betrieb sowie einer redundante Auslegung betriebsnotwendiger Komponenten und 
+                georedundante Backups. Die technische Absicherung, auch «Hardening» genannt wird in 
+                einem weiteren Projekt angegangen, um ein optimales Ergebnis zu erzielen.  
+                Ein Variantenvergleich wurde zwischen der On-Premises-Lösung und der Microsoft Azure 
+                Cloud durchgeführt, wobei die On-Premises-Lösung aufgrund der günstigeren Selbstkosten 
+                und der vollen Kontrolle über die Daten bevorzugt wurde. Ein weiterer Vorteil dieser Lösung, 
+                Kunden welche Ihre Daten bewusst nicht in eine öffentlichen Cloud wie Microsoft Azure oder 
+                Amazon AWS auslagern möchten, können mit unserem Produkt bedient werden.  
+                Das Projekt wird gemäß der Hermes 5 Projektmethodik durchgeführt, die auf die Bedürfnisse 
+                des Projekts angepasst wird. Die Projektphasen sind Initialisierung, Konzept und 
+                Realisierung. Die Vorgehensziele umfassen die Definition der Anforderungen, die Erstellung 
+                eines Projektplans mit Aufwandschätzung, die Durchführung eines Variantenvergleichs, die 
+                Implementierung der Lösung und die Durchführung von Tests.  
+                Insgesamt soll das Projekt dazu beitragen, die Anforderungen von KMU an eine 
+                kostengünstige, flexible und sichere IT-Infrastruktur zu erfüllen und eine langfristige 
+                Zusammenarbeit mit den Kunden zu fördern 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                   Seite 2 von 90 
+                    Inhaltsverzeichnis 
+                    Management Summary ........................................................................................................ 2 
+                    1.       Projektmethode ...................................................................................................... 7 
+                    1.1         Projektmethode ................................................................................................... 7 
+                    1.2         Szenario .............................................................................................................. 7 
+                    1.3         Projektorganisation .............................................................................................. 7 
+                    1.4         Phasen und Meilensteine .................................................................................... 8 
+                    2.       Zeitplan ................................................................................................................... 9 
+                    3.       Initialisierung ........................................................................................................ 10 
+                    3.1         Ausgangslage .................................................................................................... 10 
+                    3.2         Kommunikation .................................................................................................. 10 
+                    3.3         Projektziele und Lieferobjekte ............................................................................ 11 
+                        3.3.1     Systemziele .................................................................................................... 11 
+                        3.3.2     Vorgehensziele ............................................................................................... 11 
+                        3.3.3     Lieferobjekte ................................................................................................... 11 
+                    3.4         Grobanforderungen ........................................................................................... 12 
+                    3.5         Systemgrenzen .................................................................................................. 13 
+                    3.6         Lösungsoptionen ............................................................................................... 14 
+                        3.6.1     On-Premises Lösung ...................................................................................... 15 
+                        3.6.2     Azure Cloud Lösung ....................................................................................... 18 
+                    3.7         Variantenvergleich ............................................................................................. 21 
+                        3.7.1     Nutzwertanalyse ............................................................................................. 21 
+                        3.7.2     Bewertung der Varianten ................................................................................ 22 
+                        3.7.3     Kostenvergleich .............................................................................................. 22 
+                        3.7.4     SWOT Analyse ............................................................................................... 23 
+                    3.8         Variantenempfehlung ......................................................................................... 25 
+                    3.9         Projektfreigabe .................................................................................................. 25 
+                        3.9.1     Ausgangslage ................................................................................................. 25 
+                        3.9.2     Freigabe ......................................................................................................... 25 
+                    4.       Konzept ................................................................................................................. 26 
+                    4.1         Situationsanalyse .............................................................................................. 26 
+                        4.1.1     Einleitung ........................................................................................................ 26 
+                        4.1.2     Beschreibung IST-System Kunde ................................................................... 26 
+                        4.1.3     Beschreibung des IST-Systems OBIS ............................................................ 27 
+                    4.2         Systemarchitektur .............................................................................................. 28 
+                        4.2.1     Microsoft Remote Desktop Services ............................................................... 29 
+                        4.2.2     Multi Faktor Authentifizierung (MFA) ............................................................... 30 
+                        4.2.3     Active Directory Domain Services ................................................................... 31 
+                        4.2.4     Datenablage / File Server ............................................................................... 32 
+                    4.3         Systemdesign .................................................................................................... 33 
+                    589_FabriceBally_Dokumentation_V1.pdf                                                Seite 3 von 90 
+                        4.3.1     Virtuelle Netzwerke ......................................................................................... 34 
+                        4.3.2     Server und Netzwerkspeicher ......................................................................... 35 
+                        4.3.3     Virtuelle Maschinen ........................................................................................ 35 
+                        4.3.4     Systemsicherheit ............................................................................................ 37 
+                    4.4         Testkonzept ....................................................................................................... 39 
+                        4.4.1     Testsystem ..................................................................................................... 39 
+                        4.4.2     Testziele ......................................................................................................... 39 
+                        4.4.3     Testmethode................................................................................................... 39 
+                        4.4.4     Testfälle .......................................................................................................... 39 
+                    4.5         SLA und Preisgestaltung ................................................................................... 39 
+                        4.5.1     Service Level Agreement ................................................................................ 39 
+                        4.5.2     Preismodell ..................................................................................................... 39 
+                    4.6         Konzeptbericht ................................................................................................... 39 
+                    5.       Realisierung ......................................................................................................... 40 
+                    6.       Schlussbetrachtung ............................................................................................. 41 
+                    7.       Authentizität ......................................................................................................... 42 
+                    8.       Anhang ................................................................................................................. 43 
+                    8.1         Glossar .............................................................................................................. 43 
+                    8.2         Abkürzungsverzeichnis ...................................................................................... 44 
+                    8.3         Kontakte ............................................................................................................ 45 
+                    8.4         Literaturverzeichnis............................................................................................ 45 
+                    8.5         Quellenverzeichnis ............................................................................................ 46 
+                    8.6         Projektinitialisierungsauftrag .............................................................................. 47 
+                    8.7         Präsentation Diplomeingabe .............................................................................. 52 
+                    8.8         Bestätigung Experte (Extern) ............................................................................. 55 
+                    8.9         Freigabe Diplomarbeit ....................................................................................... 56 
+                    8.10        Projektauftrag .................................................................................................... 57 
+                    8.11        Systemkonzept Detailkonfiguration .................................................................... 69 
+                        8.11.1    DC001 ............................................................................................................ 69 
+                        8.11.2    DC002 ............................................................................................................ 69 
+                        8.11.3    DC003 ............................................................................................................ 69 
+                        8.11.4    RD001 ............................................................................................................ 69 
+                        8.11.5    FS001 ............................................................................................................. 69 
+                        8.11.6    WA001............................................................................................................ 69 
+                        8.11.7    TS001 ............................................................................................................. 69 
+                        8.11.8    AP001............................................................................................................. 69 
+                    8.12        Terminplan ........................................................................................................ 71 
+                    8.13        Projektstatusberichte ......................................................................................... 71 
+                        8.13.1    Kalenderwoche 9 ............................................................................................ 71 
+                        8.13.2    Kalenderwoche 10 .......................................................................................... 72 
+                    589_FabriceBally_Dokumentation_V1.pdf                                                Seite 4 von 90 
+                       8.13.3   Kalenderwoche 11 .......................................................................................... 72 
+                       8.13.4   Kalenderwoche 12 .......................................................................................... 73 
+                       8.13.5   Kalenderwoche 13 .......................................................................................... 73 
+                       8.13.6   Kalenderwoche 14/15 ..................................................................................... 74 
+                       8.13.7   Kalenderwoche 16 .......................................................................................... 74 
+                       8.13.8   Kalenderwoche 17 .......................................................................................... 75 
+                       8.13.9   Kalenderwoche 18 .......................................................................................... 75 
+                       8.13.10     Kalenderwoche 19 ...................................................................................... 75 
+                       8.13.11     Kalenderwoche 20 ...................................................................................... 75 
+                   8.14        Sitzungsprotokolle ............................................................................................. 76 
+                       8.14.1   Sitzungsprotokoll Kickoff-Meeting ................................................................... 76 
+                       8.14.2   Sitzungsprotokoll Zwischenmeeting ................................................................ 77 
+                   8.15        Projektpräsentationen ........................................................................................ 78 
+                       8.15.1   Kickoff Meeting ............................................................................................... 78 
+                       8.15.2   Zwischenmeeting ............................................................................................ 83 
+                   Tabellenverzeichnis 
+                   Tabelle 1: Änderungsverzeichnis ............................................................................................................ 6 
+                   Tabelle 2: Zeitplan ................................................................................................................................... 9 
+                   Tabelle 3: Kommunikation ..................................................................................................................... 10 
+                   Tabelle 4: Systemziele .......................................................................................................................... 11 
+                   Tabelle 5: Vorgehensziele ..................................................................................................................... 11 
+                   Tabelle 6: Lieferobjekte ......................................................................................................................... 11 
+                   Tabelle 7: Grobanforderungen .............................................................................................................. 12 
+                   Tabelle 8: Beschreibung On-Premises Lösung ..................................................................................... 15 
+                   Tabelle 9: Preisberechnung On-Premises Lösung ............................................................................... 16 
+                   Tabelle 10: Amortisierung On-Premises Lösung .................................................................................. 16 
+                   Tabelle 11: Anforderungsabdeckung On-Premises Lösung ................................................................. 17 
+                   Tabelle 12: Beschreibung Azure Cloud Lösung .................................................................................... 18 
+                   Tabelle 13: Kostenberechnung Azure Cloud Lösung............................................................................ 19 
+                   Tabelle 14: Kostenberechnung Azure Cloud Lösung v2 ....................................................................... 19 
+                   Tabelle 15: Anforderungsabdeckung Azure Cloud Lösung .................................................................. 20 
+                   Tabelle 16: Nutzwertanalyse ................................................................................................................. 21 
+                   Tabelle 17: Kostenvergleich .................................................................................................................. 22 
+                   Tabelle 18: IST-Hardware ..................................................................................................................... 27 
+                   Tabelle 19: RDS Schnittstellen .............................................................................................................. 29 
+                   Tabelle 20: MFA Schnittstellen .............................................................................................................. 30 
+                   Tabelle 21: ADDS Schnittstellen ........................................................................................................... 31 
+                   Tabelle 22: Datenablage Schnittstellen ................................................................................................. 32 
+                   Tabelle 23: Virtuelle Netzwerke ............................................................................................................. 34 
+                   Tabelle 24: Netzwerkkonfiguration ........................................................................................................ 34 
+                   Tabelle 25: Virtuelle Maschinen ............................................................................................................ 35 
+                   Tabelle 26: Standardkonfiguration Virtuelle Maschinen ........................................................................ 36 
+                   Tabelle 27: Konfiguration Virtuelle Maschinen ...................................................................................... 36 
+                   589_FabriceBally_Dokumentation_V1.pdf                                            Seite 5 von 90 
+                  Abbildungsverzeichnis 
+                  Abbildung 1: Projektorganisation............................................................................................................. 7 
+                  Abbildung 2: Phasen und Meilensteine ................................................................................................... 8 
+                  Abbildung 3:  RDS Komponenten ......................................................................................................... 14 
+                  Abbildung 4: SWOT On Premises Lösung ............................................................................................ 23 
+                  Abbildung 5: SWOT Azure Cloud Lösung ............................................................................................. 24 
+                  Abbildung 6: IST-System OBIS ............................................................................................................. 27 
+                  Abbildung 7: Systemarchitektur RDS .................................................................................................... 29 
+                  Abbildung 8: Systemarchitektur MFA .................................................................................................... 30 
+                  Abbildung 9: Systemarchitektur ADDS ................................................................................................. 31 
+                  Abbildung 10:Systemdesign File Server ............................................................................................... 32 
+                  Abbildung 11: Schema Gesamtsystem ................................................................................................. 33 
+                  Abbildung 12: Hyper-V Server & Storage ............................................................................................. 35 
+                   
+                  Änderungsverzeichnis 
+                   Version      Datum         Änderung                                     Autor 
+                   0.1          01.12.2022    Vorlage erstellt                             Fabrice Bally 
+                   0.2          28.02.2023    Phase Initialisierung abgeschlossen          Fabrice Bally 
+                   0.3          28.03.2023    Phase Konzept abgeschlossen                  Fabrice Bally 
+                   0.4          12.04.2023    Phase Realisierung begonnen                  Fabrice Bally 
+                   0.5          14.05.2023    Phase Realisierung abgeschlossen             Fabrice Bally 
+                   0.6          24.05.2023    Korrekturarbeiten und Finalisierung          Fabrice Bally 
+                   1.0          31.05.2023    Finale Version                               Fabrice Bally 
+                                                  Tabelle 1: Änderungsverzeichnis 
+                                                
+                  589_FabriceBally_Dokumentation_V1.pdf                                          Seite 6 von 90 
+                  1. Projektmethode 
+                   1.1  Projektmethode 
+                Projektmethode: Hermes 5.1 
+                   1.2  Szenario 
+                Szenario: IT-Infrastruktur * 
+                 
+                *Da es sich bei diesem Projekt (Diplomarbeit) um ein Teilprojekt handelt, wird auf die Phase 
+                «Einführung» gemäss Hermes 5.1 verzichtet. Die Einführung eines nicht fertiggestellten 
+                Produktes welches Kundendaten beherbergt, wäre ein Risiko für das Gesamtprojekt.  
+                   1.3  Projektorganisation 
+                                                           Auftraggeber 
+                 
+                                                           Geschäftsleitung 
+                                                OBIS Consulting & ICT-Services GmbH 
+                 
+                 
+                 
+                                 Experten 
+                              Beat Lüthi (Extern)  
+                            Daniel Schaer (Intern) 
+                                       
+                 
+                 
+                 
+                                                            Projektleiter 
+                                                            Fabrice Bally 
+                 
+                 
+                                                           Fachspezialist 
+                                                            Fabrice Bally 
+                 
+                                                      Abbildung 1: Projektorganisation 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                   Seite 7 von 90 
+               1.4  Phasen und Meilensteine 
+              
+              
+                                                                                                                                                              
+                                                                                           
+                                                                             Abbildung 2: Phasen und Meilensteine 
+                                                                                                                                                            Seite 8 von 90 
+                                                                                                                                                                       
+                  2.  Zeitplan 
+                                                                                                                                                                                                                      
+                                                                                                                    
+                                                                                                           Tabelle 2: Zeitplan 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                   Seite 9 von 90 
+                   
+                   3. Initialisierung 
+                  Bemerkung: Der Projektinitialisierungsauftrag befindet sich im Anhang! (7.1) 
+                    3.1  Ausgangslage 
+                  Kunden im KMU Sektor: In einem sich stetig verändernden Umfeld wie der ICT sind 
+                  Sicherheit und Flexibilität heute besonders für KMU mit 5 bis 50 Mitarbeitern schwer 
+                  miteinander zu vereinbaren. Kleinere Unternehmen müssen Kompromisse eingehen, um die 
+                  Anforderungen abzudecken. Als moderner Arbeitgeber, müssen die Unternehmen den 
+                  Mitarbeitern Möglichkeiten zum Home-Office bieten. Aus technischer Sicht ist dies für 
+                  Unternehmen ein grosser Kostenpunkt. Die Lösung soll nicht nur schnell, sondern auch 
+                  sicher und einfach zu bedienen sein. Um dies zu erreichen, muss die Infrastruktur fortlaufend 
+                  gewartet und aktualisiert werden, welches nebst den hohen Initialkosten, die monatlichen 
+                  Kosten für die ICT-Lösung in die Höhe treibt. Bei technischen Neuerungen muss die 
+                  Infrastruktur auf den aktuellen Stand der Technik gebracht werden, um kein Sicherheitsrisiko 
+                  einzugehen. KMU in dieser Grösse benötigen eine solche Infrastruktur, im Idealfall mit 
+                  vorhersehbaren bzw. planbaren Kosten für die ICT Lösung.  
+                  OBIS Consulting & ICT-Services GmbH: An diesem Punkt möchten wir als ICT-
+                  Dienstleister zur Seite stehen und unseren Kunden eine Lösung anbieten können welche 
+                  nicht nur kostentechnisch tragbar ist, sondern auch die Anforderungen im Bereich Sicherheit 
+                  und Fernzugriff (Home-Office) abdeckt. Aufgrund des bestehenden Knowhows und der 
+                  Kosten haben wir uns intern bereits für eine Microsoft RDS-Lösung mit sitzungsbasierter 
+                  Virtualisierung entschieden. Nun muss evaluiert werden, ob dieses Projekt On-Premises 
+                  oder in der Public Cloud umgesetzt wird. Dabei stehen für uns die Kosten, Leistung und der 
+                  Preis im Vordergrund. Die eingesetzte Lösung muss hierbei zu einem Selbstkostenpreis von 
+                  unter 100.-/Mt. pro User betrieben werden können, redundant ausgelegt sein und eine 
+                  Sichere Möglichkeit zum Benutzerlogin unterstützen. Die Lösung soll dem Endbenutzer eine 
+                  vollständige Desktoperfahrung bieten. Seine Branchensoftware und Daten werden auf 
+                  unseren Systemen betrieben, damit für den Kunden die Notwendigkeit einer eigenen 
+                  Infrastruktur wegfällt.  
+                    3.2  Kommunikation 
+                   Adressat der     Verantwort-    Inhalt            Ziel                   Mittel   Termin 
+                   Information      lich für die                                            / 
+                                    Kommunikati                                             Mediu
+                                    on                                                      m 
+                   Auftraggeber     Projektleiter  Monatlicher       Vorschritt des         Mündl    GL-
+                                                   Statusbericht     Projekt an AG          ich      Sitzung  
+                                                                     kommunizieren mit 
+                                                                     Aussagen zu 
+                                                                     Termin, Kosten 
+                   Experten*        Projektleiter  Wöchentlicher     Projektfortschritt,    E-Mail  Montagv
+                                                   Statusbericht     Problemerkennung                ormittag 
+                                                    Tabelle 3: Kommunikation 
+                  *Änderung gemäss Absprache Experten nach Kickoffmeeting. 
+                                               
+                                                                                             Seite 10 von 90 
+                                                                                                             
+                      3.3  Projektziele und Lieferobjekte 
+                   3.3.1  Systemziele 
+                    Nr.      Beschreibung                         Messgrösse                                Priorität 
+                    SZ1      Zweifaktorauthentifizierung zur      Login auf die Umgebung ist für            M 
+                             sicheren Authentifizierung der       Endbenutzer ausschliesslich mit 2FA 
+                             Endbenutzer ist in betrieb.          möglich. 
+                    SZ2      Die Lösung hat einen                 Preiskalkulation der Umgesetzten          1 
+                             Selbstkostenpreis von unter          Lösung ist < 100.- pro Monat und 
+                             CHF 100.-/Monat. und User.           User.  
+                    SZ3      Lokale Peripherie wie Drucker        Lokale Peripherie wird an den             2 
+                             und Webcam sind in der               Session Host weitergeleitet und ist 
+                             Umgebung für Endbenutzer             dort mit 
+                             verfügbar.                           seiner Funktion verfügbar. 
+                    SZ4      Eine Lösung für den                  Daten können zwischen der lokalen         2 
+                             Datenaustausch zwischen              Datenstruktur und dem Session Host 
+                             lokalen Gerät und Cloud ist          transferiert werden.  
+                             implementiert.  
+                    SZ5      Endbenutzer können einen             Eine Lösung zum Self-Service              3 
+                             Passwortwechsel ohne Hilfe           Passwortrest für Endbenutzer ist 
+                             des Supports durchführen.            implementiert.  
+                                                           Tabelle 4: Systemziele 
+                   3.3.2  Vorgehensziele 
+                    Nr.      Beschreibung                         Messgrösse                                Priorität 
+                    VZ1      Meilensteine werden innerhalb        Meilensteine wurden innerhalb des         1 
+                             des Zeitplans erreich.               Zeitplans erreich. 
+                    VZ2      Statusberichte werden                Projektreporting an Experten wurde        1 
+                             fristgerecht übermittelt.            fristgerecht übermittelt.  
+                                                         Tabelle 5: Vorgehensziele 
+                   3.3.3  Lieferobjekte  
+                    Nr.      Beschreibung                         Messgrösse                                Priorität 
+                    LO1      Zugriffsmanager / Controller für     RDCB (Connection Broker)                  1 
+                             Microsoft Remote Desktop             vorhanden, konfiguriert und 
+                             Dienste inkl. 2FA Lösung.            funktionsfähig.  
+                    LO2      Webserver mit Gateway für            Gateway mit Webserver vorhanden,          1 
+                             Anmeldung aus dem Internet.          erreichbar, erlaubt Benutzerlogin.  
+                    LO3      AD Infrastruktur mit GPO zur         AD Forest vorhanden, Test-benutzer  2 
+                             Verwendung der RDS Dienste,          konfiguriert, GPOs für RDS System 
+                             Session Host (Terminal Server).  konfiguriert  
+                    LO4      Service Factsheet inkl. SLA          Factsheet / SLA vorhanden.                M 
+                             sind für die Vermarktung der 
+                             Services  
+                    LO5      Ein Preismodell für die              Preismodell / ROI vorhanden.              M 
+                             Vermarktung ist vorhanden. 
+                             Eine ROI-Berechnung ist 
+                             gemacht. 
+                                                          Tabelle 6: Lieferobjekte 
+                   589_FabriceBally_Dokumentation_V1.pdf                                              Seite 11 von 90 
+                      3.4  Grobanforderungen 
+                    ID    Anforderungen                  Abnahmekriterium               Wichtigkeit    Abdeckung  
+                    A1    Das System muss eine           Das System stellt eine                    5           SZ3 
+                          RDS-Lösung mit                 vollständige                                          SZ4 
+                          sitzungsbasierter              Desktoperfahrung für den 
+                          Virtualisierung                Benutzer zur Verfügung.  
+                          bereitstellen. 
+                    A2    Benutzer können sicher         Login auf die Umgebung ist                5           SZ1 
+                          auf der Umgebung               nur mit einer zusätzlichen 
+                          verifiziert werden /           Authentifizierung möglich. 
+                          Sicheres Login.   
+                    A3    Das System muss in der         Das System kann                           5           SZ2 
+                          Lage sein,                     Benutzerschwankungen 
+                          Desktops skalierbar            (30 Benutzer) verarbeiten.  
+                          bereitzustellen. 
+                    A4    Der Selbstkostenpreis liegt  Preisberechnung unter                       3           SZ2 
+                          bei 50 Usern unter 100.-       100.-/Mt.  
+                          /Mt. pro User. 
+                    A5    Wartungen und                  Standart-Updates (excl.                   2           SZ5 
+                          Aktualisierungen können        Spezialsoftware) werden 
+                          automatisiert durchgeführt     automatisiert durchgeführt.  
+                          werden. 
+                    A6    Das System muss sicher         Komponenten und                           5           SZ1 
+                          und geschützt sein,            Architektur übertreffen 
+                          insbesondere hinsichtlich      Branchenstandards 
+                          der Datensicherheit und        bezüglich Daten-sicherheit 
+                          des Datenschutzes.             und Datenschutz.  
+                    A7    Betriebsnotwendige             Netzwerk,                                 3           SZ2 
+                          Komponenten müssen             Stromversorgung und 
+                          redundant ausgelegt sein.      Internetzugang sind 
+                          Backups müssen                 redundant ausgelegt. 
+                          georedundant verfügbar         Backups sind geo-
+                          sein.                          redundant verfügbar.  
+                                                     Tabelle 7: Grobanforderungen 
+                   Die Anforderungen wurden durch Informationen aus einer mündlichen Kundenumfrage sowie 
+                   technischem Verständnis des Projektleiters definiert. Die Anforderungen sind auf das 
+                   Gesamtprojekt abgestimmt und fügen sich in dieses Konzept ein.  
+                    
+                   Informationen zum Microsoft RDS System stammen aus der Microsoft Dokumentation. 
+                                                  
+                   589_FabriceBally_Dokumentation_V1.pdf                                           Seite 12 von 90 
+                   3.5  Systemgrenzen 
+                Bei diesem Projekt handelt es sich um ein Teilprojekt. Das Gesamtprojekt hat das Ziel einen 
+                IaaS Cloud-Service an KMU Kunden zu entwickeln. Aus diesem Grund müssen für gewisse 
+                Entscheidungen  wie  zum  Beispiel  den  Serverstandort  (Cloud  oder  On-Premises)  Punkte 
+                berücksichtigt werden, welche nicht Bestandteil dieses Projektes sind. Dieses Projekt hat zum 
+                Ziel  eine  RDS  Infrastruktur  auf  virtuellen  Maschinen  mit  einem  sicheren  Zugang 
+                bereitzustellen. Zudem soll eine ADDS Domain mit Azure AD Anbindung und einem File Server 
+                bereitgestellt werden, um die Benutzererfahrung vollständig aufzeigen zu können.  
+                 
+                Die Systemgrenzen werden in folgender Grafik aufgezeigt:  
+                 
+                 
+                                                                                           
+                 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 13 von 90 
+                   3.6  Lösungsoptionen 
+                Um einen realistischen Vergleich zu ermöglichen, wird das System im 
+                Betrieb mit 100 Usern aus 10 Unternehmen verglichen. Die Benutzer 
+                benötigen hierbei 10 Terminalserver und 8 Applikationsserver auf den 
+                Systemen der OBIS Consulting & ICT-Services GmbH.  
+                Die Lösungsoptionen unterscheiden sich technisch nur geringfügig 
+                voneinander. Die Grundkomponenten zu den Microsoft Remote Desktop 
+                Services sind On-Premises und in der Cloud in den grössten Teilen 
+                identisch. Unterschiede gemäss Microsoft Dokumentation. Eine RDS 
+                System besteht immer aus den Komponenten rechts auf der Seite. Aus 
+                diesem Grund ist der Installationsaufwand bei beiden Lösungsoptionen 
+                nahezu identisch und wird nicht weiter berücksichtigt. Um später eine 
+                realistische Preisberechnung erstellen zu können, wird bei beiden 
+                Lösungsoptionen mit einem Installationsaufwand von 130 Stunden 
+                gerechnet, welcher sich im Selbstkostenpreis integriert.   
+                Informationen zum Design und Hardwarekonfiguration der Maschinen 
+                stammen aus den Microsoft Guidelines.  
+                Informationen zur Multifaktorauthentifizierung stammen aus dem Artikel 
+                Remote Desktop Services – Multi Factor Authentication. 
+                Informationen zur Lizenzierung der Microsoft RDS Services stammen aus 
+                dem Artikel License your RDS Deployment with CALs 
+                  
+                                            
+                                                                                      Abbildung 3:  
+                                                                                   RDS Komponenten 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 14 von 90 
+                3.6.1  On-Premises Lösung 
+                Die On-Premises-Lösung bietet den Vorteil, dass die OBIS Consulting & ICT-Services GmbH 
+                die volle Kontrolle über die Infrastruktur und die Daten behält. Der Standort ist bereits mit 
+                einem Serverraum mit redundantem Strom- und Internetzugang sowie einer leistungsfähigen 
+                Firewall ausgestattet, was die Umsetzung erleichtert. Die On-Premises Lösung erfordert 
+                hohe Investitionen für Hardware und Software sowie eine sorgfältige Planung und 
+                Konfiguration, um optimale Leistung und Sicherheit zu gewährleisten.  
+                3.6.1.1  Beschreibung On-Premises Lösung 
+                                                Beschreibung 
+                 Kurzbeschreibung               Die Lösung wird auf Systemen On-Premises im 
+                                                Rechenzentrum der OBIS Consulting & ICT-Services 
+                                                GmbH installiert und betrieben. Die Infrastruktur ist mit 
+                                                einem redundantem Strom- und Internetanschluss 
+                                                ausgestattet.  
+                 Aufbau- Ablauforganisation     Die Infrastruktur wird auf zwei Hyper-V Hosts mithilfe von 
+                                                virtuellen Maschinen aufgebaut und betrieben. Die 
+                                                vollständige Kontrolle der Server, Netzwerke und Daten 
+                                                liegt bei der OBIS Consulting & ICT-Services GmbH.  
+                 Systemressourcen                  •  CPU Threads: 64 Stk 
+                                                   •  Virtuelle CPU: 256Stk.  
+                                                   •  Arbeitsspeicher: 512GB 
+                                                   •  SSD Speicher: 20TB 
+                                                   •  HDD Speicher: 80TB 
+                                                   •  Backup Speicher: 80TB 
+                 Hardware                          •  HPE ProLiant DL385 G10 Plus v2 
+                                                   •  Synology RS1221+ /Storage 
+                                                   •  MikroTik CRS326 / Netzwerk 
+                                                   •  DEC2750 / Firewall 
+                 Wartung                        Die Wartung unterliegt zu 100% der OBIS Consulting & 
+                                                ICT-Services GmbH. Wird zu 80% automatisiert.  
+                 Projektkosten Initial          Hardware & Lizenzen: 49’480 
+                                                Projektaufwand: 25'000 (250 Std.) 
+                 Kosten pro Betriebsjahr        Total Kosten pro Jahr: 101'988  
+                                        Tabelle 8: Beschreibung On-Premises Lösung 
+                                           
+                589_FabriceBally_Dokumentation_V1.pdf                                Seite 15 von 90 
+                3.6.1.2  Kostenberechnung On-Premises Lösung 
+                Zur einfacheren Darstellung der Hardwarekosten wurden die Kosten pro Jahr errechnet mit 
+                dem Anschaffungspreis durch die Amortisierungsdauer der Komponenten. 
+                                                                                                      
+                                       Tabelle 9: Preisberechnung On-Premises Lösung 
+                                                                                                      
+                                        Tabelle 10: Amortisierung On-Premises Lösung 
+                Hardwarekosten: von Alltron AG gerundet auf 100.- 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 16 von 90 
+                   3.6.1.3  Anforderungsabdeckung On-Premises Lösung 
+                    ID    Anforderung                           Zuordnung zu Subsystem /          Beurteilung der 
+                                                                Komponente                        Anforderungsab
+                                                                                                  deckung 
+                    A1    Das System muss eine RDS-             Virtuelle Maschinen. Microsoft    100% 
+                          Lösung mit sitzungsbasierter          RDS Rollen. (Gateway, 
+                          Virtualisierung bereitstellen.        Manager und Terminalserver) 
+                    A2    Benutzer können sicher auf der        Azure AD Conditional Access       100% 
+                          Umgebung verifiziert werden /         für Authentifizierung auf lokaler 
+                          Sicheres Login.                       Infrastruktur.  
+                    A3    Das System muss in der Lage           Auf der Hyper-V Infrastruktur     100%  
+                          sein, Desktops skalierbar             sind 50 zusätzliche User 
+                          bereitzustellen.                      implementierbar. Ressourcen 
+                                                                sind jedoch nicht endlos 
+                                                                verfügbar, ohne in weitere 
+                                                                Hardware zu investieren.  
+                    A4    Der Selbstkostenpreis liegt bei 50    Der berechnete                    100% 
+                          Usern unter 100.-/Mt. pro User.       Selbstkostenpreis liegt bei 85.- 
+                                                                bis 93.- pro Benutzer und 
+                                                                Monat bei dieser Lösung.  
+                    A5    Wartungen und Aktualisierungen        Wartungen können zu 80%           80% 
+                          können automatisiert                  automatisiert durchgeführt 
+                          durchgeführt werden.                  werden. Gewisse 
+                                                                Netzwerkkomponenten 
+                                                                unterstützen keine 
+                                                                automatische Wartung. 
+                    A6    Das System muss sicher und            Die Systeme unterliegen der       90% 
+                          geschützt sein, insbesondere          vollen Kontrolle der OBIS 
+                          hinsichtlich der Datensicherheit      Consulting & ICT-Services 
+                          und des Datenschutzes.                GmbH. Die Datensicherheit 
+                                                                wird per Design auf höchstem 
+                                                                Niveau liegen.  
+                    A7    Betriebsnotwendige                    Betriebsnotwendige                100% 
+                          Komponenten müssen redundant          Komponenten wie Strom, 
+                          ausgelegt sein. Backups müssen        Netzwerk und Domain 
+                          georedundant verfügbar sein.          Services werden redundant 
+                                                                ausgelegt. Backups sind an 
+                                                                mehreren Standorten 
+                                                                verfügbar.  
+                                        Tabelle 11: Anforderungsabdeckung On-Premises Lösung 
+                                                  
+                   589_FabriceBally_Dokumentation_V1.pdf                                           Seite 17 von 90 
+                3.6.2  Azure Cloud Lösung 
+                Die Azure-Cloud Lösung bietet den Vorteil, dass gewisse Teile der Wartung, Aktualisierung 
+                und Sicherheit von Microsoft übernommen werden. Die Anschaffung oder Wartung von 
+                Hardware entfällt bei dieser Lösung, es ist somit mit weniger Investitionsaufwand zu 
+                rechnen. Die Lösung kann bei Bedarf schnell und einfach skaliert werden, welches das 
+                Onboarding von grösseren Kunden erleichtert. Die Azure Lösung generiert jedoch laufende 
+                monatliche oder jährliche Kosten für die Nutzung der Cloud-Services von Microsoft. 
+                3.6.2.1  Beschreibung Azure Cloud Lösung 
+                                                Beschreibung 
+                 Kurzbeschreibung               Die Lösung wird in der Microsoft Azure Cloud aufgebaut 
+                                                und betrieben. Eine Ausnahme bildet die 
+                                                Backupinfrastruktur welche On-Premises betrieben wird.   
+                 Aufbau- Ablauforganisation     Die Infrastruktur wird mithilfe virtueller Maschinen und 
+                                                Azure Diensten in der Microsoft Cloud aufgebaut. Server, 
+                                                Netzwerke und Daten liegen in der Cloud. 
+                 Systemressourcen                  •  Virtuelle CPU: 114Stk.  
+                                                   •  Arbeitsspeicher: 292GB 
+                                                   •  Azure Speicher: 100TB 
+                                                   •  Backup Speicher: 80TB 
+                 Hardware                          •  Synology RS1221+ /Storage 
+                                                   •  DEC2750 / Firewall 
+                 Azure Ressourcen                  •  10x Azure A8v2 (8vCPU/16GB RAM) 
+                                                   •  8x Azure D4ds (4vCPU/16GB RAM) 
+                                                   •  1x Azure A2 (2vCPU / 4GB RAM)  
+                                                   •  Azure Blob Storage 100TB 
+                 Wartung                        Die Wartung der Hardware und Netzwerke wird komplett 
+                                                an Microsoft ausgelagert. Maschinen und Applikationen 
+                                                müssen durch die OBIS Consulting & ICT-Services GmbH 
+                                                gewartet werden. Dieser Prozess wird automatisiert.   
+                 Projektkosten Initial          Hardware & Lizenzen: 2400 
+                                                Projektaufwand: 25'000 (250 Std.) 
+                 Kosten pro Betriebsjahr        Total Kosten pro Jahr: 139494 bis 165’165 
+                                       Tabelle 12: Beschreibung Azure Cloud Lösung 
+                                           
+                589_FabriceBally_Dokumentation_V1.pdf                                Seite 18 von 90 
+                3.6.2.2  Kostenberechnung Azure Cloud Lösung 
+                Bei einer Reservierung der Azure Cloud Instanzen über drei Jahre werden bis zu 40% 
+                Rabatt gewährt, dieser Rabatt ist in dieser Darstellung bereits berücksichtigt.  
+                Informationen zu Azure Reserved Virtual Machine Instances 
+                                                                                                      
+                                      Tabelle 13: Kostenberechnung Azure Cloud Lösung 
+                Kostenberechnung excl. 40% Rabatt auf virtuelle Maschinen: 
+                 
+                                                                                                      
+                                     Tabelle 14: Kostenberechnung Azure Cloud Lösung v2 
+                 
+                Kosten der Azure Cloud Lösung am Standort Switzerland North. 
+                Azure Pricing Calculator 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 19 von 90 
+                  3.6.2.3  Anforderungsabdeckung Azure Cloud Lösung 
+                   ID    Anforderung                         Zuordnung zu Subsystem /          Beurteilung der 
+                                                             Komponente                        Anforderungsab
+                                                                                               deckung 
+                   A1    Das System muss eine RDS-           Azure Virtual Desktop mit         100% 
+                         Lösung mit sitzungsbasierter        Microsoft Access Gateway.  
+                         Virtualisierung bereitstellen. 
+                   A2    Benutzer können sicher auf der      Microsoft 365 2FA (Bereits im     100% 
+                         Umgebung verifiziert werden /       Access Gateway auf Azure 
+                         Sicheres Login.                     implementiert)  
+                   A3    Das System muss in der Lage         Desktop Collection kann in der    100%  
+                         sein, Desktops skalierbar           Azure Cloud «grenzenlos» 
+                         bereitzustellen.                    erweitert werden.  
+                   A4    Der Selbstkostenpreis liegt bei 50  Der berechnete                    0% 
+                         Usern unter 100.-/Mt. pro User.     Selbstkostenpreis liegt bei 116 
+                                                             bis 151 CHF.   
+                   A5    Wartungen und Aktualisierungen      Wartungen können zu 100%          100% 
+                         können automatisiert                automatisiert durchgeführt 
+                         durchgeführt werden.                werden.  
+                   A6    Das System muss sicher und          Die Datenhoheit liegt nicht in    80% 
+                         geschützt sein, insbesondere        jedem Fall bei der OBIS 
+                         hinsichtlich der Datensicherheit    Consulting & ICT-Services 
+                         und des Datenschutzes.              GmbH (US Cloud Act)  
+                   A7    Betriebsnotwendige                  Die Verantwortung für einen       80% 
+                         Komponenten müssen redundant        redundanten Betrieb wird an 
+                         ausgelegt sein. Backups müssen      Microsoft ausgelagert. OBIS 
+                         georedundant verfügbar sein.        Consulting & ICT-Services 
+                                                             GmbH hat keine Kontrolle.  
+                                       Tabelle 15: Anforderungsabdeckung Azure Cloud Lösung 
+                  Der CLOUD Act verpflichtet die CSP mit Sitz in den USA, welche ausserhalb der USA 
+                  Datenspeicherzentren führen, die Daten, die sich auf ihren Servern befinden, aufzubewahren 
+                  und den zuständigen US-Strafverfolgungsbehörden auf Ersuchen herauszugeben. Dies 
+                                                                                                 1
+                  unabhängig davon, ob die Daten in den USA oder im Ausland gespeichert sind.  
+                                                
+                                                
+                  1
+                    Seite 6 / Bericht zum US Cloud Act des EJPD vom 17. September 2021 
+                  589_FabriceBally_Dokumentation_V1.pdf                                        Seite 20 von 90 
+                   3.7  Variantenvergleich  
+                3.7.1  Nutzwertanalyse 
+                 Nr.           Kriterium           Gewicht      On-Premises         Azure Cloud 
+                                                             Bewertung  Punkte  Bewertung  Punkte 
+                 A1  Das System muss eine            20          6        120        6         120 
+                      RDS-Lösung mit 
+                      sitzungsbasierter 
+                      Virtualisierung bereitstellen. 
+                 A2  Das System muss in der          20          6        120        6         120 
+                      Lage sein, 
+                      Zweifaktorauthentifizierung 
+                      zu unterstützen. 
+                 A3  Das System muss in der          10          6         60        6         60 
+                      Lage sein, Desktops 
+                      skalierbar bereitzustellen. 
+                 A4  Der Selbstkostenpreis liegt     15          6         90        1         15 
+                      bei 50 Usern unter 100.-/Mt. 
+                      pro User. 
+                 A5  Wartungen und                    8          4         32        6         48 
+                      Aktualisierungen können 
+                      automatisiert durchgeführt                                                 
+                      werden. 
+                 A6  Das System muss sicher          20          5        100        4         80 
+                      und geschützt sein, 
+                      insbesondere hinsichtlich 
+                      der Datensicherheit und des 
+                      Datenschutzes. 
+                 A7  Betriebsnotwendige               7          6         42        4         24 
+                      Komponenten müssen 
+                      redundant ausgelegt sein. 
+                      Backups müssen 
+                      georedundant verfügbar 
+                      sein.  
+                                                                                                 
+                      Nutzwert                       100                  564                  467 
+                                               Tabelle 16: Nutzwertanalyse 
+                Gewichtung = Total 100 
+                Bewertung = 1-6 
+                Punkte = Gewicht (x) Bewertung 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 21 von 90 
+                  3.7.2  Bewertung der Varianten 
+                  Die On-Premises-Lösung und die Azure-Cloud-Lösung erfüllen beide die gestellten 
+                  funktionalen Anforderungen. Die On-Premises-Lösung erfüllt zudem alle nicht-funktionalen 
+                  Anforderungen, während die Azure-Cloud-Lösung hinsichtlich Datensicherheit und 
+                  Betriebssicherheit nicht alle Anforderungen erfüllt. Bei der Bewertung der Kosten ist die On-
+                  Premises-Lösung kosteneffektiver als die Azure-Cloud-Lösung, da der Selbstkostenpreis von 
+                  unter 100.-/Mt. pro User erfüllt wird, während die Azure-Lösung den Selbstkostenpreis von 
+                  116 bis 151 CHF pro User und Monat überschreitet. Allerdings bietet die Azure-Cloud-
+                  Lösung eine unbegrenzte Skalierbarkeit, während die On-Premises-Lösung nur bis ca. 150 
+                  User skalierbar ist. Beide Lösungen bieten automatisierte Wartungen, aber die On-Premises-
+                  Lösung hat eine höhere Bewertung bezüglich Datensicherheit und Datenschutz, da die 
+                  Kontrolle über die Systeme und Daten bei der OBIS Consulting & ICT-Services GmbH liegt, 
+                  während bei der Azure Lösung die Datenhoheit und Betriebssicherheit bei Microsoft liegt.  
+                  Beide Varianten bieten eine Möglichkeit, um einen zusätzlichen Sicherheitsaspekt beim 
+                  Benutzerlogin bereitzustellen. Beide Lösungen nutzen Microsoft AD Multifactor 
+                  Authentication als Backend und verlangen vom Benutzer mindestens ein Passwort, ein 
+                  vertrauenswürdiges Gerät wie ein Smartphone oder Hardware Key und eine biometrische 
+                  Komponente wie ein Fingerabdruck oder Gesichtsscan gemäss Microsoft Artikel.  
+                  Zusammenfassend bietet die On-Premises-Lösung eine kosteneffektive und datensichere 
+                  Lösung mit begrenzter Skalierbarkeit. Die Azure-Cloud-Lösung bietet eine unbegrenzte 
+                  Skalierbarkeit, aber zu höheren Kosten und mit weniger Kontrolle über die Datenhoheit und 
+                  Betriebssicherheit. Im Variantenvergleich schneiden die beiden Lösungen mit 564 Punkten 
+                  für die On-Premises Lösung und 467 Punkte für die Azure Cloud Lösung ab.  
+                  3.7.3  Kostenvergleich  
+                  Auffallend sind im direkten Vergleich die hohen Kosten für die Infrastruktur auf Azure. Dies 
+                  hat den Grund, dass starke Maschinen für Session Hosts und Applikationsserver 24/7 
+                  betrieben werden müssen. Besonders für die Session Hosts, wird die Performance 
+                  schätzungsweise nur für maximal 12 Stunden pro Tag verwendet und kann in der Nacht 
+                  nicht anderweitig genutzt werden. Auf der anderen Seite müssen die Server auf Azure nicht 
+                  zusätzlich lizenziert werden und die Access CALs sind bereits in den benötigten Microsoft 
+                  365 Business Premium Lizenzen enthalten. Die Lizenzkosten bei der On-Premises-Lösung 
+                  sind somit erheblich höher bzw. es ist anzunehmen, dass Microsoft bei der Azure Lösung 
+                  eine Mischrechnung mit den Betriebskosten und Lizenzen angestellt hat. 
+                    Lösung.                                        Infrastruktur            Total pro Jahr 
+                    On Premises                                    15’588                   101’988 
+                    Azure Cloud                                    68’094                   139’494 
+                                                      Tabelle 17: Kostenvergleich 
+                                                  
+                  589_FabriceBally_Dokumentation_V1.pdf                                           Seite 22 von 90 
+                3.7.4  SWOT Analyse 
+                3.7.4.1  On-Premises-Lösung 
+                                                                                   
+                              Abbildung 4: SWOT On Premises Lösung 
+                Der Datenstandort Berner Oberland erfüllt die Bedürfnisse der Kunden, die eine 
+                Datenhaltung in der Schweiz bevorzugen. Durch den Einsatz von Drittkomponenten kann 
+                das System jederzeit flexibel erweitert werden. Das System ist zwar skalierbar, aber die 
+                Ressourcen sind begrenzt, was bedeutet, dass bei einer hohen Anzahl von Benutzern in 
+                neue Hardware investiert werden muss, und es besteht ein Risiko von Ausfällen der 
+                Hardware. Bei einem Ausfall tragen wir die Verantwortung.  
+                 
+                Durch die On Premises Lösung kann die OBIS Consulting & ICT-Services GmbH die 
+                Systemanforderungen der Kunden individuell anpassen und dadurch die Kundenbeziehung 
+                stärken, da auch nicht von Microsoft freigegebene Lösungen implementiert werden können. 
+                 
+                Die Lösung bietet eine kosteneffiziente Alternative zur Azure Cloud Lösung und erfüllt die 
+                Bedürfnisse der Kunden, die eine Datenhaltung in der Schweiz bevorzugen. Allerdings 
+                besteht ein gewisses Risiko von Ausfällen der Hardware und die Skalierbarkeit ist begrenzt.  
+                 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 23 von 90 
+                  3.7.4.2  Azure-Cloud-Lösung 
+                                                                                          
+                                Abbildung 5: SWOT Azure Cloud Lösung 
+                  Die Azure Cloud-Lösung ermöglicht es, die Umgebung nahezu grenzenlos zu skalieren. 
+                  Zudem kann die Wartung und Aktualisierung zu einem höheren Grad automatisiert werden 
+                  als dies bei klassischen Lösungen möglich ist, welches den Betriebsaufwand minimiert.  
+                  Die Lösung ist nahtlos in das Microsoft-Ökosystem integriert und bietet dadurch eine hohe 
+                  Kompatibilität zu neuen Microsoft Produkten und Weiterentwicklungen in der Zukunft. Da die 
+                  Lösung auf der Azure-Plattform aufbaut, besteht auch eine Abhängigkeit von Microsoft. 
+                  Da das System in der Cloud liegt, haben wir keine direkte Kontrolle über die Hardware und 
+                  die Verantwortung für die Sicherheit und Einhaltung der Gesetze liegt direkt bei Microsoft. 
+                  Als Firma mit Sitz in den USA muss sich Microsoft auch an die dort geltenden Gesetze 
+                  halten, welche in diversen Punkten eine Differenz zu EU-Standards aufweisen.                                
+                  589_FabriceBally_Dokumentation_V1.pdf                                       Seite 24 von 90 
+                      3.8  Variantenempfehlung 
+                   Die Azure-Cloud-Lösung bietet unbegrenzte Skalierbarkeit, erfüllt jedoch nicht alle 
+                   Anforderungen bezüglich Datensicherheit und Datenschutz. Der Selbstkostenpreis von 116 
+                   bis 151 CHF pro User und Monat überschreitet die Anforderung von unter 100.-/Mt. pro User.  
+                   Die On-Premises-Lösung bietet mehr Kontrolle über die Datenhoheit und Betriebssicherheit, 
+                   da die Systeme und Daten unter der vollen Kontrolle der OBIS Consulting & ICT-Services 
+                   GmbH liegen. Dies ist ein wichtiger Faktor für Kunden, die sich um die Sicherheit ihrer Daten 
+                   sorgen. Unter Umständen ist dieser Punkt ein Verkaufsargument für potenzielle Kunden, 
+                   welche Ihre Daten bewusst nicht in eine öffentliche Cloud migrieren möchten, dennoch die 
+                   Vorteile einer Cloudlösung geniessen möchten.   
+                   Obwohl die On-Premises-Lösung eine begrenzte Skalierbarkeit von ca. 150 Usern hat, kann 
+                   dies durch Investitionen in zusätzliche Hardware erhöht werden, falls dies in Zukunft 
+                   erforderlich sein sollte. Dies ist ein akzeptabler Kompromiss für die Kosteneffektivität und die 
+                   vollständige Kontrolle über die Daten und Betriebssicherheit der Systeme. Um 
+                   sicherzustellen, dass die On-Premises-Lösung alle Anforderungen erfüllt, müssen die 
+                   Systeme entsprechend konfiguriert und gepflegt werden.  
+                   Insgesamt bietet die On-Premises-Lösung eine kosteneffektive und sichere Lösung, die alle 
+                   Anforderungen erfüllt und den Selbstkostenpreis von unter 100.-/Mt. pro User erfüllt.  
+                   Aus diesen Gründen empfehle ich die On-Premises-Lösung. 
+                    
+                      3.9  Projektfreigabe 
+                   3.9.1  Ausgangslage 
+                   Aufgrund der fehlenden Sicherheit bezüglich Datenschutz in der Azure Cloud und des 
+                   Preises der Dienstleistungen von Microsoft konnten wir uns bereits während der 
+                   Initialisierung für die On-Premises Variante entscheiden. Weitere Dokumente in der Phase 
+                   Konzept beziehen sich jeweils nur noch auf die gewählte On-Premises Variante.  
+                   3.9.2  Freigabe 
+                   Das Projekt wurde per 28.02.2023 vom Auftraggeber freigegeben.  
+                    
+                    
+                   Fabrice Bally*                                Hans-Peter Käppeli*  
+                    
+                   *als Zeichnungsberechtigte für die OBIS Consulting & ICT-Services GmbH  
+                   Bemerkung: Der Projektauftrag befindet sich im Anhang! (7.2) 
+                    
+                                                   
+                   589_FabriceBally_Dokumentation_V1.pdf                                             Seite 25 von 90 
+                  4. Konzept 
+                   4.1  Situationsanalyse 
+                4.1.1  Einleitung 
+                Das Ziel dieses Projekts ist die Implementierung einer RDS-Lösung mit sitzungsbasierter 
+                Virtualisierung für KMU mit bis zu 50 Mitarbeitern. Das Endprodukt soll kosteneffektiv, sicher 
+                und flexibel sein und die Anforderungen an Sicherheit und Fernzugriff (Home-Office) 
+                abdecken. Das Produkt soll dem Endbenutzer eine vollständige Desktoperfahrung bieten, 
+                indem seine Branchensoftware und Daten auf unseren Systemen betrieben werden. Um 
+                dieses Ziel zu erreichen, wurden zwei Varianten evaluiert: eine On-Premises Lösung und 
+                eine Microsoft Azure Cloud Lösung. Nach einer gründlichen Bewertung beider Varianten 
+                wurde beschlossen, die On-Premises Lösung zu implementieren. Sie weist eine höhere 
+                Anforderungsabdeckung auf, insbesondere hinsichtlich der Kosten, Datensicherheit und 
+                Kontrolle über die Infrastruktur. Die vorhandene IT-Infrastruktur beinhaltet einen Serverraum 
+                mit redundanter Strom- und Internetversorgung sowie einer leistungsfähigen Firewall, der 
+                bereits für andere Services genutzt wird. 
+                4.1.2  Beschreibung IST-System Kunde 
+                Damit die Problematik der «klassischen» Kundensysteme besser verstanden werden kann, 
+                beschreibe ich hier zwei bestehende Kundeninfrastrukturen. Diese Systeme können in leicht 
+                angepasster Form in tausenden Firmen in der Schweiz vorkommen.  
+                4.1.2.1  Infrastruktur A 
+                Die Firma verfügt über eine klassische Client-Server Lösung, welche im lokalen Netzwerk 
+                des Unternehmens implementiert ist. Daten, Applikationen und Benutzerprofile liegen auf 
+                den Servern des Unternehmens. Während der Pandemie wurde die Infrastruktur schnell und 
+                kostengünstig auf Home-Office umgebaut. Die Benutzer können nun von zu Hause über eine 
+                VPN Verbindung auf den persönlichen Client im Unternehmen zugreifen.  
+                Nachteile dieser Lösung: Jeder Client, welche auf die Infrastruktur zugreifen möchte, muss 
+                vom IT Partner des Unternehmens konfiguriert werden. Die Arbeitsstationen der Benutzer 
+                müssen 24/7 laufen, damit der Benutzer Zugriff hat. Das System ist fehleranfällig, da es bei 
+                einem IP Wechsel oder falscher Bedienung (z.B Herunterfahren) unbrauchbar wird.  
+                4.1.2.2  Infrastruktur B 
+                Die Firma ist bereits sehr modern eingerichtet und benutzt hauptsächlich die Microsoft 365 
+                Dienste aus der Cloud. Wegen einer Applikation, welche nicht in der Cloud betrieben werden 
+                kann, läuft ein Server-PC im Netzwerk. Die Benutzer können von ausserhalb des 
+                Unternehmens via VPN auf die Branchenapplikation zugreifen. Nachteil dieser Lösung: 
+                Damit Applikationen/Datenbanken über das Netzwerk in akzeptabler Performance verfügbar 
+                sind, müssen mindestens 100Mbits synchron zur Verfügung stehen. Benutzer, welche sich 
+                über das Mobilfunknetz anmelden, erhalten diese Performance nur in den wenigsten Fällen. 
+                Wie bei Infrastruktur A müssen die Geräte vom IT Partner konfiguriert werden. Als 
+                Komplettsystem kann diese Lösung als sehr fehleranfällig bezeichnet werden. Beide 
+                Lösungen bieten kaum Möglichkeiten, um Sicherheitsmassnahmen effektiv und mit 
+                vernünftigem Aufwand in der Infrastruktur umzusetzen.   
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 26 von 90 
+                    4.1.3  Beschreibung des IST-Systems OBIS 
+                    Die OBIS Consulting & ICT-Services GmbH verfügt bereits über einen bestehenden 
+                    Serverraum mit Infrastruktur, welcher in der Region Thun angemietet ist. Mit dem 
+                    Eigentümer des Serverraums besteht eine langfristige Partnerschaft.  
+                     Nr.   Beschreibung           Detail                                                          Jahr 
+                     1     Serverraum             Gemieteter Serverraum mit bestehendem                           - 
+                                                  Stromanschluss, Internetanschluss und Kühlung. 
+                                                  (Vollständig Redundant)   
+                     2     Serverschrank          Serverschrank mit einer einbautiefe von mehr als einem  2021 
+                                                  Meter (geeignet für Rack Server). Auslastung ca. 1/3 
+                     3     Firewall               Deciso DEC 2750 Firewall mit OPNSense als                       2022 
+                                                  Betriebssystem. Die Firewall verfügt über einen 
+                                                  Datendurchsatz von über 10Gbit.  
+                     4     Backupsystem           Synology RS1221+ mit einer Gesamtkapazität von                  2022 
+                                                  80TB. Wird für Off-Site Backups von Kunden 
+                                                  verwendet. Auslastung ca. 1/4 
+                     5     Server                 HPE DL380 G9 Testserver. Konfiguriert als Hyper-V               2019 
+                                                  Host. Betreibt Netzwerkcontroller und Monitoringsystem 
+                                                  der Firma.  
+                     6     Switch                 HPE Aruba 1820 Switch 1Gbit                                     2018 
+                     7     USV                    APC Back-UPS BR900                                              2022 
+                                                           Tabelle 18: IST-Hardware 
+                     
+                     
+                                                                        
+                                                     
+                                                          Abbildung 6: IST-System OBIS 
+                    589_FabriceBally_Dokumentation_V1.pdf                                                Seite 27 von 90 
+                         4.2  Systemarchitektur  
+                      Das System kann in folgende Teilsystem unterteilt werden:  
+                          •   Microsoft Remote Desktop Services (RDS) 
+                                   o  Webserver 
+                                   o  Gateway  
+                                   o  Verbindungsverwaltung 
+                                   o  Lizenzverwaltung 
+                                   o  Terminal Server  
+                          •   Multi Faktor Authentifizierung (MFA)  
+                                   o  MFA Provider / Azure Conditional Access 
+                                   o  Network Policy and Access Server (NPAS) 
+                          •   Active Directory Domain Services (Verzeichnisdienst) 
+                                   o  Objektverwaltung (User, Computer)  
+                                   o  Objektauthentifizierung 
+                                   o  Richtlinienverwaltung  
+                          •   Datenablage / File Server  
+                                   o  Speicher / Datenmanagement 
+                                   o  Rechteverwaltung (Datenebene)  
+                                   o  Versionierung  
+                      In den folgenden Kapiteln werde ich auf die Teilsysteme und Schnittstellen untereinander 
+                      genau beschreiben. Pro Teilsystem wird eine Systemarchitektur Schematisch dargestellt, 
+                      eine Liste mit Schnittstellen zu anderen Systemen und eine Beschreibung erstellt.   
+                                                          
+                      589_FabriceBally_Dokumentation_V1.pdf                                                        Seite 28 von 90 
+                   4.2.1  Microsoft Remote Desktop Services  
+                   Das Teilsystem Microsoft Remote Desktop Services, kurz RDS stellt die notwendigen 
+                   Dienste bereit, um dem Benutzer mit seinem Endgerät Zugriff auf interne Ressourcen 
+                   bereitzustellen. Hierbei werden die Anfragen via Active Directory und Network Policy and 
+                   Access Server überprüft und genehmigt. Eine Verbindungsdatei kann nach erfolgter 
+                   Authentifizierung vom Webserver geladen werden, diese stellt eine Verbindung via Gateway 
+                   zum Connection Broker her. Dieser weist den Benutzer seinem Session Host zu und 
+                   überwacht die weitere Verbindung. Als letzter Schritt wird dem Benutzer eine Lizenz vom 
+                   Lizenzserver zugewiesen, bevor dieser auf dem Session Host Zugriff auf seine Daten erhält.  
+                                                                                                         
+                   Abbildung 7: Systemarchitektur RDS 
+                   4.2.1.1  Schnittstellen  
+                    Nr.    Quelle                Ziel                    Detail 
+                    1      Client                Webserver               Anmeldung Web Portal  
+                    2      Client                Gateway                 HTTPS RDS Session 
+                    3      Webserver             Broker                  Bereitstellung Session Collection 
+                    4      Gateway               Broker                  Vermittlung der RDS Session 
+                    5      Broker                Session Host            Vermittlung der RDS Session 
+                    6      Session Host          License Server          Prüfung der Lizenz 
+                    7      Alle Systeme          Active Directory        Benutzerauthentifizierung 
+                    8      Gateway               NPAS                    MFA Authentifizierung 
+                    9      Session Host          File Storage            Bereitstellung Benutzerdaten 
+                   Tabelle 19: RDS Schnittstellen                               
+                   589_FabriceBally_Dokumentation_V1.pdf                                              Seite 29 von 90 
+                   4.2.2  Multi Faktor Authentifizierung (MFA) 
+                   Ein kleines, jedoch sehr wichtiges Teilsystem stellt die Multi Faktor Authentifizierung dar. Mit 
+                   diesem Dienst stellen wir sicher, dass sich nur berechtigte Benutzer anmelden können. Dazu 
+                   werden die «klassischen» Anmeldedaten: Benutzer und Passwort überprüft. Sind diese 
+                   Daten korrekt, sendet der RDS Gateway eine Aufforderung zum Network Policy and Access 
+                   Server. Der NPAS leitet die Anfrage zum MFA Provider bzw. Azure AD weiter. Der Benutzer 
+                   muss die Login Anfrage auf seinem Mobilgerät mit einem PIN, Gesichtserkennung oder 
+                   Fingerabdruck bestätigen, um das Login zu genehmigen. Sind diese Parameter 
+                   durchgehend korrekt, wird die Bestätigung via MFA Provider und NPAS an den RDS 
+                   Gateway versendet und eine Verbindung darf aufgebaut werden.  
+                                                                                                           
+                   Abbildung 8: Systemarchitektur MFA 
+                   4.2.2.1  Schnittstellen  
+                    Nr.    Quelle                Ziel                    Detail 
+                    1      Client                Webserver               Anmeldung Web Portal  
+                    2      Client                Gateway                 HTTPS RDS Session 
+                    3      Webserver             Broker                  Bereitstellung Session Collection 
+                    4      Gateway               Broker                  Vermittlung der RDS Session 
+                    5      Broker                Session Host            Vermittlung der RDS Session 
+                    6      Session Host          License Server          Prüfung der Lizenz 
+                    7      Gateway               NPAS                    Anforderung MFA  
+                   Tabelle 20: MFA Schnittstellen 
+                   589_FabriceBally_Dokumentation_V1.pdf                                              Seite 30 von 90 
+                   4.2.3   Active Directory Domain Services 
+                   Active Directory Domain Services (ADDS) verwaltet die Anmeldedaten der Benutzer und 
+                   stellt die Richtlinien zur Verfügung welche den Benutzer aber auch unsere Systeme 
+                   schützen, um einen reibungslosen Betrieb sicherzustellen. Aus diesem müssen wir mehrere 
+                   Domain Controller im Netzwerk bereitstellen. In der DMZ ist ein Read Only Domain 
+                   Controller vorhanden, welcher dem Webserver und Gateway Anmeldedaten verifiziert. Intern 
+                   gibt es zwei Domain Controller, welche auch physikalisch auf getrennten Systemen laufen 
+                   sollten, um ihren Zweck vollumfänglich zu erfüllen. Ohne Verzeichnisdienst läuft das System 
+                   nicht. Dies ist wie das RDS System als zentrale Komponente zu betrachten.   
+                                                                                                          
+                   Abbildung 9: Systemarchitektur ADDS 
+                   4.2.3.1  Schnittstellen  
+                    Nr.    Quelle                Ziel                    Detail 
+                    1      Webserver             RODC                    Benutzerauthentifizierung 
+                    2      Gateway               RODC                    Benutzerauthentifizierung 
+                    3      File Server           Domain Controller       Berechtigungsverwaltung  
+                    4      Broker                Domain Controller       Berechtigungsverwaltung  
+                    5      Session Host          Domain Controller       Benutzerauthentifizierung 
+                    6      Licence Server        Domain Controller       Verzeichnisdienst 
+                    7      RODC                  Domain Controller       Replikation  
+                    8      Alle Systeme          Domain Controller       Benutzerauthentifizierung, 
+                                                                         Berechtigungsverwaltung 
+                                                                         Richtlinienverwaltung 
+                   Tabelle 21: ADDS Schnittstellen 
+                   589_FabriceBally_Dokumentation_V1.pdf                                              Seite 31 von 90 
+                   4.2.4   Datenablage / File Server 
+                   Die Datenablage wird mit einem Windows File Server realisiert. Dieser stellt einen zentralen 
+                   Speicherplatz für alle Daten zur Verfügung, welche auf mehreren Systemen benötigt werden. 
+                   In Zusammenarbeit mit den Active Directory Domain Services können Zugriffskontrollen für 
+                   Benutzer bzw. Benutzergruppen und Freigaben der Datenstruktur realisiert werden. Alle 
+                   Daten (Ausnahme: Applikationsdaten) der Benutzer sollen auf diesem System gespeichert 
+                   werden. Aus diesem Grund soll technisch kein direkter Zugriff aus dem Internet oder der 
+                   DMZ erfolgen können. Speziell an diesem Teilsystem ist auch noch, dass die Daten 
+                   einerseits direkt auf dem Server (SSD) gespeichert werden. Andererseits soll es eine 
+                   Partition welche via Synology Storage (HDD) angebunden wird geben. Der Speicherplatz auf 
+                   dem Synology (separates Gerät) kann deutlich kostengünstiger betrieben werden.   
+                                                                                                         
+                   Abbildung 10:Systemdesign File Server 
+                   4.2.4.1  Schnittstellen  
+                    Nr.    Quelle                Ziel                    Detail 
+                    1      Session Host          File Server             Datenablage  
+                    2      File Server           Synology Storage        Datenanbindung 
+                   Tabelle 22: Datenablage Schnittstellen 
+                                                    
+                   589_FabriceBally_Dokumentation_V1.pdf                                              Seite 32 von 90 
+                   4.3  Systemdesign  
+                In diesem Abschnitt wird das Systemdesign so genau als möglich beschrieben. Folgende 
+                Grafik gibt eine Übersicht, wie sich die Teilsysteme zum Gesamtsystem 
+                zusammenschliessen.  
+                                                                                                      
+                Abbildung 11: Schema Gesamtsystem 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 33 von 90 
+                   4.3.1  Virtuelle Netzwerke 
+                   Zur besseren Verwaltung und Erhöhung der Sicherheit in der gesamten Umgebung werden 
+                   mehrere virtuelle Netzwerke eingerichtet. Mit diesem Mittel können die virtuellen Server 
+                   logisch voneinander getrennt werden. Zudem lässt eine solche Konfiguration mit mehreren 
+                   Netzwerken später einen höheren Individualisierungsgrad zu.  
+                    Beschreibung                Subnetz            VLAN ID       Zweck 
+                    Management Netzwerk         10.10.10.0/24      101           Physikalische Geräte wie 
+                                                                                 Server, Storage und Switches. 
+                    Service Netzwerk            10.10.20.0/24      102           Domain Controller, RDS Broker 
+                                                                                 und File Server 
+                    Demilitarisierte Zone       10.10.30.0/24      103           Webserver, RDS Gateway und 
+                                                                                 Read only Domain Controller 
+                    Applikationsserver          10.10.40.0/24      104           Applikationsserver  
+                    Terminalserver              10.10.50.0/24      105           Terminalserver 
+                    WAN1                        Public IP          3             Swisscom Business 
+                    WAN2                        Public IP          4             UPC Business 
+                   Tabelle 23: Virtuelle Netzwerke 
+                   Bereits vorhanden und nicht umkonfiguriert werden die WAN Anschlüsse im VLAN drei und 
+                   vier. Diese Konfiguration hat den Vorteil, dass bei einem Ausfall der physikalischen 
+                   Hardware die Netzwerke bereits virtuell zur Verfügung stehen und eine «neue» Firewall als 
+                   virtuelle Maschine schnell und unkompliziert auf dem Server konfiguriert werden kann. 
+                    Netzwerk                Gateway                  DHCP                    DNS 
+                    10.10.10.0/24           10.10.10.254             Firewall (100-119)      Firewall 
+                    10.10.20.0/24           10.10.20.254             Kein DHCP               DC 
+                    10.10.30.0/24           10.10.30.254             Kein DHCP               RODC 
+                    10.10.40.0/24           10.10.40.254             Kein DHCP               DC 
+                    10.10.50.0/24           10.10.50.254             Kein DHCP               DC 
+                   Tabelle 24: Netzwerkkonfiguration 
+                   Aus Sicherheitsgründen werden nur im Management Netzwerk IP-Adressen via DHCP 
+                   vergeben. Dies aus dem Grund, damit allfällige neue Hardware direkt aus diesem Netzwerk 
+                   konfiguriert werden kann. Andernfalls müssten diese in einem separaten Netzwerk vorgängig 
+                   auf diese Umgebung konfiguriert werden. Das Management Netzwerk wird ebenfalls als 
+                   Default LAN an alle physikalisch verbundenen Geräte mitgegeben.  
+                                                   
+                   589_FabriceBally_Dokumentation_V1.pdf                                            Seite 34 von 90 
+                4.3.2  Server und Netzwerkspeicher 
+                Die virtuellen Maschinen werden virtualisiert auf zwei Hyper-V Servern installiert und 
+                betrieben. Die Hyper-V Server sind über einen 10Gbits Link untereinander, mit dem Storage 
+                und dem restlichen Netzwerk bzw. Internet verbunden. Diese Infrastruktur ist bestehend.  
+                                                                                         
+                                           Abbildung 12: Hyper-V Server & Storage 
+                4.3.3  Virtuelle Maschinen 
+                Glücklicherweise können die unter dem Punkt «Systemdesign» beschriebenen Dienste 
+                teilweise zusammengefasst werden. Ein Übersicht der virtuellen Server:  
+                 Name                         Dienste                                        VLAN 
+                 Cloud_DC001                  Active Directory Domain System, DNS, NPAS      102 
+                 Cloud_DC003                  Active Directory Domain System, DNS (Backup)   102 
+                 Cloud_RD001                  RDS Broker, Lizenz Server                      102 
+                 Cloud_FS001                  Datenablage / File Server                      102 
+                 DMZ_DC002                    Read Only Domain Controller (ADDS, DNS)        103 
+                 DMZ_WA001                    RDS Web Access, Gateway                        103 
+                 TSNET_TS001                  RDS Session Host                               104 
+                 APNET_AP001                  Applikationsserver                             105 
+                Tabelle 25: Virtuelle Maschinen 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 35 von 90 
+                Die virtuellen Maschinen werden zum Start mit folgenden Ressourcen gleichmässig auf die 
+                physikalischen Hyper-V Server verteilt. Es ist besonders darauf zu achten, die Domain 
+                Controller des VLAN 102 auf verschiedenen Systemen zu betreiben. Im aktiven Betrieb 
+                müssen die Maschinen (Besonders Applikationsserver und Terminalserver) möglicherweise 
+                verschoben werden, um eine gleichmässige Auslastung der Server zu gewährleisten.  
+                 
+                Wir definieren folgende Standardkonfiguration für Hyper-V Maschinen: 
+                 Einstellung                                Eigenschaft 
+                 Firmware                                   Boot from File (Erste Festplatte) 
+                 Security                                   Secure Boot Enabled 
+                 Memory                                     8192 MB 
+                 Processor                                  2 Virtual Processors 
+                 Hard Drive                                 200 GB (Systempartition) 
+                 Hard Drive 2                               Nach Bedarf der Maschine 
+                 Network                                    VM Network 10G (Spezifisches VLAN) 
+                 Integration Services                       Komplett (Excl. Time Sync)  
+                 Checkpoints                                Disabled 
+                 Start Action                               Always Start (mit Start Delay) 
+                 Stop Action                                Shut Down 
+                Tabelle 26: Standardkonfiguration Virtuelle Maschinen 
+                 Name             Hyper-V          CPU              RAM              Version 
+                 DC001            HV001            2 vCPU           8192 MB          Server 2022 
+                 DC002            HV002            2 vCPU           8192MB           Server 2022 
+                 DC003            HV001            2 vCPU           8192MB           Server 2022 
+                 RD001            HV002            2 vCPU           8192MB           Server 2022 
+                 FS001            HV001            4 vCPU           8192MB           Server 2022 
+                 WA001            HV002            2 vCPU           8192MB           Server 2022 
+                 TS001            HV001            8 vCPU           12288MB          Server 2022 
+                 AP001            HV001            4 vCPU           4096MB           Server 2022 
+                Tabelle 27: Konfiguration Virtuelle Maschinen 
+                Insbesondere der Ressourcenbedarf der Terminal – und Applikation-Server kann erst im 
+                laufenden betrieb korrekt abgeschätzt und konfiguriert werden. Zusätzlich kann der Bedarf 
+                pro Terminalserver bzw. Endkundensystem sehr stark variieren. Es wird empfohlen, die 
+                Systeme mit einem Monitoringsystem zu überwachen, um eine längerfristige Analyse des 
+                Ressourcenbedarfs zu erstellen.  
+                 
+                Abweichend zur Standardkonfiguration erhält der File Server FS001 vier virtuelle CPUs. Dies 
+                hat den Grund, dass dieser Server von diversen Systemen im Betrieb sehr intensiv 
+                kontaktiert wird. Um einem Flaschenhals vorzubeugen wird die Konfiguration angepasst.  
+                 
+                Hinweis: Detaillierte Systemkonfigurationen pro System/Dienst befinden sich im Anhang.  
+                 
+                4.3.3.1  Lizenzierung 
+                Die virtuellen Maschinen mit Windows Server 2022 werden mit den vorhandenen Datacenter 
+                Lizenzen der Hyper-V Server lizenziert. Es werden zusätzlich pro Benutzer eine RDS CAL 
+                Lizenz sowie eine Server CAL (Client Access License) Zugriffslizenz benötigt, um einen 
+                korrekten Lizenzierungsgrad gemäss Microsoft zu erreichen.  
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 36 von 90 
+                4.3.4  Systemsicherheit 
+                Die Systeme müssen besonders gut gegen Cyber-Angriffe geschützt sein. Da sich eine 
+                Verbindung aus dem Internet herstellen lässt, und sich potenziell besonders schützenswerte 
+                Daten auf den Systemen befinden können, hat das System eine erhöhte Angriffsfläche.  
+                Mit der MFA Authentifizierung ist bereits ein grosser Schritt in die richtige Richtung gemacht. 
+                Wir müssen jedoch sicherstellen, dass auch kein Zugriff durch Herstellerschwachstellen, 
+                Malware oder Fehlverhalten der Benutzer zu einem Datenleck führt.  
+                4.3.4.1  Server  
+                Passwortrichtlinie: Passwörter müssen von allen Benutzern mindestens alle 180 Tage 
+                gewechselt werden. Sie müssen mindestens acht Zeichen lang sein, einen 
+                Grossbuchstaben, Kleinbuchstaben, Zahlen und Sonderzeichen enthalten. Der 
+                Benutzername darf nicht im Passwort enthalten sein. Fehlerhafte Logins (falsches Passwort) 
+                werden erkannt, der Entsprechende Benutzer wird für mindestens 30 Minuten gesperrt, um 
+                Brute-Force Attacken einzudämmen bzw. die Anzahl versuche zu limitieren.   
+                 
+                Updates: Server (excl. Domain Controller) sollen automatisiert aktuelle Sicherheitsupdates 
+                von Microsoft beziehen und schnellstmöglich installieren. In diesem Punkt stellen wir die 
+                Sicherheit der Systeme vor die Uptime. Für die Updates wird ein tägliches Wartungsfenster 
+                zwischen 23 und 5 Uhr in der Nacht definiert, welches einen Systemneustart zulässt. Falls 
+                sich zukünftig eine Situation ergibt (z.B Kunde mit 7/24 Betrieb) müsste diese Richtlinie für 
+                einzelne Server welche zwingend benötigt werden überdacht werden. Für die Domain 
+                Controller wird eine spezifischer Neustart-Zeitpunkt angegeben, damit sich mindestens ein 
+                aktiver Domain Controller im Netzwerk befindet. DC001 erhält eine Möglichkeit zum 
+                Systemneustart täglich um 02:00. Um 03:00 folgt der DC003. Der Domain Controller in der 
+                DMZ darf im Zeitfenster zwischen 23 und 5 Uhr Neustarten, da dies der einzige DC in dieser 
+                Zone ist und bei einem Neustart zwingend einen kurzen Serviceunterbucht verursacht.  
+                 
+                Windows Sicherheit: Auf allen Systemen muss Windows Defender aktiviert sein. Dieser soll 
+                zudem alle heruntergeladenen Dateien auf Bedrohungen scannen. Defender soll täglich 
+                einen Scan des Gesamtsystems durchführen. Dieser Task wird auf 01:00 eingeplant. Als 
+                Ergänzung wird ein Defender Quick Scan um 12 Uhr mittags eingeplant. Aus Performance 
+                Gründen wird der Scan von Netzlaufwerken deaktiviert. Da der File Server ebenfalls als 
+                Windows Server 2022 installiert werden soll, wird dieser Scan vom File Server durchgeführt. 
+                Vom Endbenutzer sollen keine Softwareinstallationen durchgeführt werden können, aus 
+                diesem Grund erhalten die Benutzer keine Administratorrechte.  
+                 
+                Applikationen: Endbenutzer dürfen keine Systemkritischen Applikationen ausführen. Aus 
+                diesem Grund werden die Windows PowerShell, Kommandozeile und Zugriff zur Registry 
+                gesperrt. Zusätzlich werden die Systemeinstellungen reduziert, damit der Endbenutzer nur 
+                Einstellungsmöglichkeiten für sein persönliches Profil und nicht den kompletten Session Host 
+                vornehmen kann. Um Möglichen Schwachstellen bei der Konfiguration vorzubeugen, wird 
+                dem Benutzer ein angepasstes Startmenü eingeblendet, welches nur Applikationen und 
+                Einstellungen darstellt, welche der Endbenutzer auch sehen soll. Sollte nun eine kritische 
+                Einstellung von Microsoft dem Betriebssystem hinzugefügt werden, erscheint diese nicht 
+                automatisch im Startmenü des Benutzers. Er müsste somit mutwillig die Applikation mit dem 
+                entsprechenden Programmpfad auf dem System ausführen.  
+                 
+                File Explorer: Für Endbenutzer wird der Zugriff auf das lokale Dateisystem des Endsystems 
+                gesperrt. Der Endbenutzer hat keinen Zugriff auf die Systempartition bzw. Laufwerk C: 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 37 von 90 
+                 4.3.4.2  Dateiserver / Datenstruktur  
+                 Als zentraler Dateispeicherort im Netzwerk fungiert der File Server FS001. Dieser soll die 
+                 Benutzer – und Geschäftsdaten für die Umgebung beherbergen. Folgende drei Partitionen 
+                 müssen auf dem Server eingerichtet werden:  
+                  
+                  Name                          Laufwerk                      Inhalt 
+                  Systempartition (SSD)         Local Disk C:                 Systempartition 
+                  Datenlaufwerk SSD             Data SSD D:                   Benutzerprofile, 
+                                                                              Applikationsdaten 
+                  Datenlaufwerk HDD             Data HDD E:                   Geschäftsdaten, 
+                                                                              Installationsdaten 
+                 Tabelle 28: Laufwerke FS001 
+                 Damit Benutzer nur auf Daten mit Berechtigung zugreifen können, wird die Datenstruktur mit 
+                 folgenden Berechtigungen konfiguriert:  
+                  Speicherpfad                                 Berechtigungen 
+                  D:\ProfileData\username                      Owner: Creator Owner 
+                  \\FS001\ProfileData$                         Creator Owner: Full Access 
+                                                               Domain Admins: Full Access  
+                  E:\Software\Kundenname\Softwarename          Owner: Domain Admins 
+                  \\FS001\Software$                            Domain Admins: Full Access 
+                                                               Gruppe: Read, Write, Execute   
+                  E:\Kundename (Dokumentenablage)              Owner: Domain Admins 
+                  \\FS001\Kundenname$                          Domain Admins: Full Access 
+                                                               Gruppe: Read, Write, Execute   
+                 Tabelle 29: Shares FS001 
+                 Standartmässig soll pro Applikation oder Ordner eine Berechtigungsgruppe erstellt werden 
+                 welche auf die Ressource berechtig wird. (Gemäss Microsoft Best Practices) Da diese 
+                 Konfiguration pro Kunde sehr individuell sein kann, ist es nicht möglich diese zu definieren.  
+                  
+                 4.3.4.3  Berechtigungsgruppen  
+                 Folgende Tabelle definiert die Präfixe der Berechtigungsgruppen für den effektiven Zweck im 
+                 System. Dies erleichtert die Verwaltung und Identifizierung der Berechtigungen.  
+                  Präfix          Beispiel             Zweck 
+                  dir             dir_OBIS             Datenverzeichnis der Firma  
+                  s               s_OBIS_Infoniqa      Kundenname, Applikationsname 
+                  pri             pri_OBIS_UG          Kundenname, Druckergruppe 
+                  rds             rds_OBIS             Benutzer mit Remotezugriff 
+                  sys             sys_SessionHost      Verwaltungsgruppe pro Systemtyp 
+                  svacc           svacc_Infoniqa       Präfix für Serviceaccounts  
+                 Tabelle 30:Konzept Präfixe 
+                                               
+                 589_FabriceBally_Dokumentation_V1.pdf                                     Seite 38 von 90 
+                4.3.4.4  Netzwerk 
+                 
+                4.3.4.5  Betrieb 
+                 
+                   4.4  Testkonzept  
+                4.4.1  Testsystem 
+                4.4.2  Testziele  
+                4.4.3  Testmethode 
+                4.4.4  Testfälle  
+                4.4.4.1  Abdeckung der Testfälle  
+                 
+                   4.5  SLA und Preisgestaltung 
+                4.5.1  Service Level Agreement 
+                4.5.2  Preismodell  
+                 
+                   4.6  Konzeptbericht  
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 39 von 90 
+               5.  Realisierung 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 40 von 90 
+                  6. Schlussbetrachtung 
+                Schlusskommentar zum Ergebnis der gesamten Arbeit 
+                • Darstellen welchen persönlichen Beitrag in die Lösung eingeflossen ist 
+                • Wie geht es weiter mit dem Projekt 
+                • Persönliche Betrachtung 
+                • Dank 
+                • Urheberrecht 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 41 von 90 
+                  7. Authentizität 
+                Mit  meiner  Unterschrift  bestätige  ich,  die  vorliegende  Diplomarbeit 
+                selbstständig,  ohne  Hilfe  Dritter  und  nur  unter  Benutzung  der 
+                angegebenen Quellen ohne Copyright-Verletzung, erstellt zu haben. 
+                 
+                 
+                 
+                Ort, Datum                       Unterschrift 
+                 
+                 
+                Thun, 31.05.2023                                                          
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 42 von 90 
+               8.  Anhang 
+                   8.1  Glossar 
+                 Begriff                                    Bedeutung 
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                                                             
+                 
+                 
+                 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 43 von 90 
+                   8.2  Abkürzungsverzeichnis 
+                 Abkürzung              Beschreibung 
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         
+                 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 44 von 90 
+                     8.3  Kontakte  
+                  Nachfolgend sind die für diese Diplomarbeit wichtigen Kontakte aufgeführt:  
+                   
+                   Name          Vorname          Funktion               Kontakt 
+                   Bally         Fabrice          Projektleiter          fabrice.bally@obis.ch 
+                                                                         +41796571017 
+                   Käppeli       Hans-Peter       GL OBIS GmbH           hans-peter.kaeppeli@obis.ch 
+                                                                         +41333358484 
+                   Schär         Daniel           Experte (Intern)       daniel.schaer@gibb.ch 
+                   Lüthi         Beat             Experte (Extern)       beat.luethi2@sbb.ch 
+                   Aeby          Marc             Prüfungskommission  marc.aeby@gibb.ch 
+                   Maurer        Ralph            Bildungsgangsleiter    ralph.maurer@gibb.ch 
+                   
+                     8.4  Literaturverzeichnis 
+                  EJPD. (25. März 2023). Bericht zum US CLOUD Act. Von 
+                         https://www.bj.admin.ch/dam/bj/de/data/publiservice/publikationen/berichte-
+                         gutachten/gutachten/2021-09-17-us-cloud-act.pdf.download.pdf/2021-09-17-us-
+                         cloud-act-d.pdf abgerufen 
+                   
+                                                
+                  589_FabriceBally_Dokumentation_V1.pdf                                        Seite 45 von 90 
+                     8.5  Quellenverzeichnis 
+                   Quelle                      Datum         Link 
+                   Azure Pricing Calculator    16.02.2023    https://azure.microsoft.com/en-
+                                                             us/pricing/calculator/ 
+                   Azure Reserved Virtual      16.02.2023    https://azure.microsoft.com/de-
+                   Machine Instances                         de/pricing/reserved-vm-instances/ 
+                   Infrastrukturkosten         16.02.2023    https://alltron.ch/de/ 
+                   License your RDS            17.02.2023    https://learn.microsoft.com/en-us/windows-
+                   deployment                                server/remote/remote-desktop-services/rds-
+                                                             client-access-license 
+                   Plan an Azure Active        17.02.2023    https://learn.microsoft.com/en-us/azure/active-
+                   Directory Multi-Factor                    directory/authentication/howto-mfa-getstarted 
+                   Authentication 
+                   Remote Desktop              17.02.2023    https://learn.microsoft.com/en-us/windows-
+                   Services - Multi-Factor                   server/remote/remote-desktop-services/rds-plan-
+                   Authentication                            mfa 
+                   Remote Desktop              15.02.2023    https://learn.microsoft.com/en-us/windows-
+                   Services - planning                       server/remote/remote-desktop-services/rds-
+                                                             poster 
+                   Session host virtual        24.03.2023    https://learn.microsoft.com/en-us/windows-
+                   machine sizing                            server/remote/remote-desktop-services/virtual-
+                                                             machine-recs 
+                   Welcome to Remote           24.03.2023    https://learn.microsoft.com/en-us/windows-
+                   Desktop Services                          server/remote/remote-desktop-
+                                                             services/welcome-to-rds 
+                   Desktop Hosting             28.03.2023    https://go.microsoft.com/fwlink/p/?LinkId=517389 
+                   Reference Guide 
+                   Desktop Hosting             28.03.2023    https://learn.microsoft.com/en-us/windows-
+                   Services                                  server/remote/remote-desktop-services/desktop-
+                                                             hosting-service 
+                   Remote Desktop Service  28.03.2023        https://learn.microsoft.com/en-us/windows-
+                   Roles                                     server/remote/remote-desktop-services/rds-roles 
+                   Deploy Remote Desktop  05.04.2023         https://learn.microsoft.com/en-us/windows-
+                   Environment                               server/remote/remote-desktop-services/rds-
+                                                             deploy-infrastructure 
+                   Integrate NPS Extension  11.04.2023       https://learn.microsoft.com/en-us/azure/active-
+                   with Azure AD                             directory/authentication/howto-mfa-nps-
+                                                             extension-rdg 
+                   Sign-In Reports with        16.04.2023    https://learn.microsoft.com/en-us/azure/active-
+                   Azure AD                                  directory/authentication/howto-mfa-reporting 
+                                                              
+                                                              
+                                                              
+                                                              
+                   
+                                                 
+                  589_FabriceBally_Dokumentation_V1.pdf                                         Seite 46 von 90 
+                   8.6  Projektinitialisierungsauftrag 
+                 
+                 
+                                                      
+                        
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 47 von 90 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 48 von 90 
+                                                                                                                                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 49 von 90 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 50 von 90 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 51 von 90 
+                   8.7  Präsentation Diplomeingabe 
+                                                                                      
+                                                                                         
+                                                                                        
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 52 von 90 
+                                                                                           
+                                                                                            
+                                                                                              
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 53 von 90 
+                                                                                       
+                                                                                        
+                                                                                         
+                                               
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 54 von 90 
+                   8.8  Bestätigung Experte (Extern) 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 55 von 90 
+                   8.9  Freigabe Diplomarbeit 
+                 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 56 von 90 
+                   8.10 Projektauftrag 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 57 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 58 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 59 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 60 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 61 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 62 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 63 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 64 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 65 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 66 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 67 von 90 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 68 von 90 
+                   8.11 Systemkonzept Detailkonfiguration 
+                Anhang zum Konzept mit der Detailkonfiguration pro Endsystem / Dienst.  
+                8.11.1 DC001 
+                 
+                8.11.2 DC002 
+                 
+                8.11.3 DC003  
+                 
+                8.11.4 RD001 
+                 
+                8.11.5 FS001  
+                 
+                8.11.6 WA001  
+                 
+                8.11.7 TS001  
+                 
+                8.11.8 AP001 
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 69 von 90 
+                     8.12  Logbuch  
+                   Datum                   Tätigkeit               Ziel                   Bemerkung 
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
+                   
+                                                 
+                  589_FabriceBally_Dokumentation_V1.pdf                                          Seite 70 von 90 
+                      8.13 Terminplan 
+                    Termin                                           Datum / Zeitspanne 
+                    Phase Initialisierung                            01.12.2022 – 25.02.2023  
+                    Eingabe Diplomarbeit                             12.12.2022 
+                    Kickoff Meeting                                  13.02.2023 
+                    Variantenwahl                                    20.02.2023 
+                                                                      
+                    Phase Konzept                                    27.02.2023 – 31.03.2023 
+                    Konzeptbericht                                   24.03.2023 
+                    Zwischenmeeting                                  28.03.2023 
+                                                                      
+                    Phase Realisierung                               03.04.2023 – 27.05.2023 
+                    Testing Komplettsystem                           12.05.2023 
+                    Abschlussmeeting                                 06.06.2023 
+                                                                      
+                    
+                      8.14 Projektstatusberichte 
+                   Ein Statusbericht wurde jeweils am Montag erstellt und versendet. 
+                   8.14.1 Kalenderwoche 9 
+                   Projektstatusbericht: KW9 
+                   Erstellungsdatum: 06.03.2023 
+                   Aktuelle Phase: Initialisierung (Abgeschlossen)  
+                     
+                   Projektstatus: Grün 
+                   (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                   handhabbar, Grün: On Track) 
+                     
+                   Durchgeführte Arbeiten:  
+                           Studie / Variantenvergleich  
+                       •
+                           Variantenwahl  
+                       •
+                           Projektfreigabe 
+                       •
+                           Dokumentation Phase Initialisierung  
+                       •
+                     
+                   Aufgetretene Probleme:  
+                           Variantenvergleich war 2-3 Std. zeitaufwändiger als geplant.  
+                       •
+                     
+                   Geplante Arbeiten für KW10:  
+                           Situationsanalyse  
+                       •
+                           Definierung Systemanforderungen 
+                       •
+                           Konzept für die Systemarchitektur  
+                       •
+                                                   
+                   589_FabriceBally_Dokumentation_V1.pdf                                             Seite 71 von 90 
+                               8.14.2 Kalenderwoche 10 
+                               Projektstatusbericht: KW10 
+                               Erstellungsdatum: 13.03.2023 
+                               Aktuelle Phase: Konzept 
+                                 
+                               Projektstatus: Grün 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                                 
+                               Durchgeführte Arbeiten:  
+                                            Situationsanalyse   
+                                      •
+                                            Definierung der Systemanforderungen 
+                                      •
+                                            Konzept zur Systemarchitektur (Physikalisch)  
+                                      •
+                                 
+                               Aufgetretene Probleme:  
+                                            Keine 
+                                      •
+                                 
+                               Geplante Arbeiten für KW11:  
+                                            Konzept zur Systemarchitektur ( 
+                                      •
+                                                         Netzwerk 
+                                                   •
+                                                         Betrieb 
+                                                   •
+                                                         Sicherheit)  
+                                                   •
+                               8.14.3 Kalenderwoche 11 
+                               Projektstatusbericht: KW11 
+                               Erstellungsdatum: 19.03.2023 
+                               Aktuelle Phase: Konzept 
+                                 
+                               Projektstatus: Orange 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                                 
+                               Durchgeführte Arbeiten:  
+                                            Konzepte zur Systemarchitektur ( 
+                                      •
+                                                         Netzwerk) 
+                                                   •
+                                                           
+                               Aufgetretene Probleme:  
+                                            Aufgrund der sehr hohen Arbeitsbelastung in KW11 und 12 konnte ich die Konzepte 
+                                      •
+                                            nicht wie geplant abschliessen.  
+                                            Ich erwarte, dass dies in den nächsten zwei Wochen aufgeholt werden kann und die 
+                                            Phase Konzept gemäss Planung abgeschlossen wird.  
+                                              
+                               Geplante Arbeiten für KW12:  
+                                            Konzept zur Systemarchitektur ( 
+                                      •
+                                                         Betrieb 
+                                                   •
+                                                         Sicherheit)  
+                                                   •
+                                            Konzeptbericht 
+                                      •
+                               589_FabriceBally_Dokumentation_V1.pdf                                                                                                    Seite 72 von 90 
+                               8.14.4 Kalenderwoche 12 
+                               Projektstatusbericht: KW12 
+                               Erstellungsdatum: 27.03.2023 
+                               Aktuelle Phase: Konzept 
+                                 
+                               Projektstatus: Orange 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                               Wie letzte Woche bereits erwähnt, habe ich aktuell ungefähr eine Woche Verzug gegenüber 
+                               dem Zeitplan.  
+                                
+                               Durchgeführte Arbeiten:  
+                                            Konzepte zur Systemarchitektur 
+                                      •
+                                            Vorbereitung Zwischenmeeting 
+                                      •
+                                              
+                               Aufgetretene Probleme:  
+                                            Keine 
+                                      •
+                                 
+                               Geplante Arbeiten für KW13:  
+                                            Konzepte fertigstellen 
+                                      •
+                                            Vorbereitung Zwischenmeeting 
+                                      •
+                                            Konzeptbericht  
+                                      •
+                               8.14.5 Kalenderwoche 13 
+                               Projektstatusbericht: KW13 
+                               Erstellungsdatum: 03.04.2023 
+                               Aktuelle Phase: Realisierung 
+                                 
+                               Projektstatus: Grün 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                                 
+                               Durchgeführte Arbeiten:  
+                                            Konzepte zur Systemarchitektur 
+                                      •
+                                            Vorbereitung Zwischenmeeting 
+                                      •
+                                            Konzeptbericht  
+                                      •
+                                              
+                               Aufgetretene Probleme:  
+                                            Keine 
+                                      •
+                                 
+                               Geplante Arbeiten für KW14: 
+                                            Setup virtuelle Maschinen 
+                                      •
+                                            Anbindung Storagesystem  
+                                      •
+                                            Grundinstallation Server  
+                                      •
+                                                                                    
+                               589_FabriceBally_Dokumentation_V1.pdf                                                                                                    Seite 73 von 90 
+                               8.14.6 Kalenderwoche 14/15 
+                               Projektstatusbericht: KW14-15  
+                               Erstellungsdatum: 17.04.2023 
+                               Aktuelle Phase: Realisierung 
+                                 
+                               Projektstatus: Grün 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                                 
+                               Durchgeführte Arbeiten:  
+                                            Grundinstallation der Server  
+                                      •
+                                            Anbindung des Storage Systems 
+                                      •
+                                            Setup der virtuellen Maschinen  
+                                      •
+                                            Test der Hardware  
+                                      •
+                                 
+                               Aufgetretene Probleme:  
+                                            Keine 
+                                      •
+                                 
+                               Geplante Arbeiten für KW16: 
+                                            Setup der ADDS Dienste 
+                                      •
+                                            Setup der RDS Dienste  
+                                      •
+                                            Setup der Terminalserver  
+                                      •
+                               Konfiguration der Gruppenrichtlinien 
+                               Hinweis: Kein Statusbericht am 10.04.2023 / KW14 (Ostermontag) 
+                               8.14.7 Kalenderwoche 16 
+                               Projektstatusbericht: KW16 
+                               Erstellungsdatum: 24.04.2023 
+                               Aktuelle Phase: Realisierung 
+                                 
+                               Projektstatus: Grün 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                                 
+                               Durchgeführte Arbeiten:  
+                                            Setup ADDS Domain 
+                                      •
+                                            Setup Azure AD Connect 
+                                      •
+                                            Installation RDS Gateway / Broker / Session Host 
+                                      •
+                                            Setup File Server und Datenstruktur 
+                                      •
+                                            Konfiguration Gruppenrichtlinien 
+                                      •
+                                           
+                                 
+                               Aufgetretene Probleme:  
+                                            Keine 
+                                      •
+                                 
+                               Geplante Arbeiten für KW17: 
+                                            Optimierung Gruppenrichtlinien  
+                                      •
+                                            Testing Software (RDS System)  
+                                      •
+                               589_FabriceBally_Dokumentation_V1.pdf                                                                                                    Seite 74 von 90 
+                               8.14.8 Kalenderwoche 17 
+                               Projektstatusbericht: Nr.10 /  KW17 
+                               Erstellungsdatum: 01.05.2023 
+                               Aktuelle Phase: Realisierung 
+                                 
+                               Projektstatus: Orange 
+                               (Ampel: Rot Massnahmen mit externer Hilfe nötig, Orange: Off Track aber durch das Projekt 
+                               handhabbar, Grün: On Track) 
+                                 
+                               Durchgeführte Arbeiten:  
+                                            Keine (Aufgrund Krankheit) 
+                                      •
+                                 
+                               Aufgetretene Probleme:  
+                                            Keine 
+                                      •
+                                 
+                               Geplante Arbeiten für KW18: 
+                                            Optimierung Gruppenrichtlinien  
+                                      •
+                                            Testing Software (RDS System)  
+                                      •
+                               8.14.9 Kalenderwoche 18 
+                                
+                               8.14.10                   Kalenderwoche 19 
+                                
+                               8.14.11                   Kalenderwoche 20 
+                                
+                                                                                    
+                               589_FabriceBally_Dokumentation_V1.pdf                                                                                                    Seite 75 von 90 
+                         8.15 Sitzungsprotokolle  
+                      8.15.1 Sitzungsprotokoll Kickoff-Meeting  
+                      Datum:           13.02.2023 
+                      Ort:             GIBB-IET 
+                       
+                      Anwesende Personen:  
+                          ✓  Bally Fabrice 
+                          ✓  Schär Daniel  
+                          ✓  Lüthi Beat 
+                       
+                      Terminplan: 
+                          ➢  Vorstellungsrunde 
+                          ➢  Projektvorstellung  
+                          ➢  Erklärung der Ausgangslage 
+                          ➢  Vorstellung der Projektziele 
+                          ➢  Besprechung Projektplanung 
+                          ➢  Organisation Diplomarbeit 
+                       
+                      Wichtige Informationen: 
+                          ➢  Projektstatusbericht an Experten jede Woche Montagvormittag  
+                          ➢  Kommunikation via Email ist i.O 
+                          ➢  Sitzungsstandort GIBB-IET ist i.O 
+                          ➢  Termin Zwischenmeeting:   28.03.2023 17 Uhr 
+                          ➢  Termin Abschlussmeeting:   06.06.2023 17 Uhr 
+                                                          
+                      589_FabriceBally_Dokumentation_V1.pdf                                                        Seite 76 von 90 
+                      8.15.2 Sitzungsprotokoll Zwischenmeeting  
+                      Datum:           28.03.2023 
+                      Ort:             GIBB-IET 
+                       
+                      Anwesende Personen:  
+                          ✓  Bally Fabrice 
+                          ✓  Schär Daniel  
+                          ✓  Lüthi Beat 
+                       
+                      Terminplan: 
+                          ➢  Besprechung Projektfortschritt 
+                          ➢  Besprechung Systemgrenzen & Abgrenzung 
+                          ➢  Besprechung Variantenvergleich 
+                          ➢  Besprechung Next Steps 
+                          ➢  Organisation Diplomarbeit 
+                       
+                      Wichtige Informationen: 
+                          ➢  Abgabe Diplombericht Initialisierung: 21.04.2023 
+                              Ein Dokument mit Projekt/Initialisierungsauftrag im Anhang.  
+                          ➢  Daniel Schaer im Urlaub bis KW16 (möchte nicht gestört werden)  
+                          ➢  Dokumentation Als Digitale Version i.O 
+                          ➢  Termin Abschlussmeeting:   06.06.2023 17 Uhr 
+                               
+                                                          
+                      589_FabriceBally_Dokumentation_V1.pdf                                                        Seite 77 von 90 
+                   8.16  Projektpräsentationen 
+                8.16.1 Kickoff Meeting 
+                                                                                            
+                                                                                               
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 78 von 90 
+                                                                                                   
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 79 von 90 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 80 von 90 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 81 von 90 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 82 von 90 
+                                                                                                      
+                8.16.2 Zwischenmeeting 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 83 von 90 
+                                                                                                      
+                 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 84 von 90 
+                                                                                                      
+                 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 85 von 90 
+                                                                                                      
+                 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 86 von 90 
+                                                                                                      
+                 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 87 von 90 
+                                                                                                      
+                 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 88 von 90 
+                                                                                                      
+                 
+                                                                                                      
+                                            
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 89 von 90 
+                                                                                                      
+                                                                                                      
+                589_FabriceBally_Dokumentation_V1.pdf                                  Seite 90 von 90 
